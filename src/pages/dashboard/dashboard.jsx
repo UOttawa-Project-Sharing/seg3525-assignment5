@@ -39,7 +39,7 @@ const Dashboard = () => {
   const addWidget = () => {
     const newWidget = {
       i: `${layout.length + 1}`,
-      x: (layout.length * 2) % 12,
+      x: (layout.length * 2) % Math.floor(gridWidth / 100),
       y: Infinity, // places it at the bottom
       w: 2,
       h: 2,
@@ -50,12 +50,10 @@ const Dashboard = () => {
   const addSquareWidget = () => {
     const newWidget = {
       i: `square-${layout.length + 1}`,
-      x: (layout.length * 2) % 12,
+      x: (layout.length * 2) % Math.floor(gridWidth / 100),
       y: Infinity,
       w: 2,
       h: 2,
-      static: false,
-      isResizable: true,
     };
     setNewLayout([...layout, newWidget]);
   };
@@ -63,7 +61,7 @@ const Dashboard = () => {
   const addCustomWidget = () => {
     const newWidget = {
       i: `custom-${layout.length + 1}`,
-      x: (layout.length * 2) % 12,
+      x: (layout.length * 3) % Math.floor(gridWidth / 100),
       y: Infinity,
       w: 3,
       h: 1.5, // restricted ratio
