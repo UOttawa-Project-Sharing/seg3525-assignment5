@@ -12,6 +12,7 @@ function RiderStatCard({
                            podiums,
                            riderImage,
                            bikeImage,
+                           position
                        }) {
     return (
         <Card
@@ -20,8 +21,8 @@ function RiderStatCard({
                 margin: '1rem auto',
                 border: 'none',
                 borderRadius: 24,
-                background: 'rgba(255,255,255,0.28)',
-                boxShadow: '0 8px 24px 0 rgba(0,0,0,0.08)',
+                background: 'rgba(255,255,255,0.8)',
+                boxShadow: '0 8px 24px 0 rgba(0,0,0,0.1)',
                 backdropFilter: 'blur(8px)',
                 position: 'relative',
                 overflow: 'hidden',
@@ -32,7 +33,7 @@ function RiderStatCard({
                     position: 'relative',
                     width: '100%',
                     height: 148,
-                    background: 'linear-gradient(90deg,#1e2838 60%, #3b4960 100%)',
+                    background: 'linear-gradient(90deg,#1e2838 20%, #3b4960 100%)',
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: 'center',
@@ -124,8 +125,8 @@ function RiderStatCard({
                         style={{
                             display: 'flex',
                             alignItems: 'center',
-                            background: 'rgba(255,198,36,0.14)',
-                            color: '#f1a100',
+                            background: 'rgba(255,198,36,0.4)',
+                            color: '#965400',
                             padding: '0.4em 1.1em',
                             borderRadius: 20,
                             fontWeight: 600,
@@ -136,6 +137,22 @@ function RiderStatCard({
                         <AwardFill style={{ marginRight: 5 }} size={20} />
                         {podiums} podiums
                     </div>
+                </div>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        background: 'rgba(36,198,255,0.4)',
+                        color: '#004096',
+                        padding: '0.4em 1.1em',
+                        borderRadius: 20,
+                        fontWeight: 600,
+                        fontSize: 16,
+                        boxShadow: '0 1px 2px #0078d81a',
+                    }}
+                >
+                    <AwardFill style={{ marginRight: 5 }} size={20} />
+                    Position: {position}
                 </div>
             </Card.Body>
         </Card>

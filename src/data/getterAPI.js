@@ -148,7 +148,7 @@ export const getRider = async (riderId) => {
     return res.data;
 };
 
-// 19. Get rider statistics (by legacyId)
+// 19. Get rider statistics (by legacyId) - https://api.motogp.pulselive.com/motogp/v1/riders/{legacyId}/stats
 export const getRiderStats = async (legacyId) => {
     const url = proxiedUrl(`/riders/${legacyId}/stats`);
     const res = await axios.get(url);

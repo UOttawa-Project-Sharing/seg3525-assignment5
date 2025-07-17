@@ -33,25 +33,26 @@ function HomePage() {
   return (
     <Container fluid>
       {/* Section 1 */}
-      <section style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Row className="flex-grow-1 w-100 align-items-center" style={{ overflow: 'hidden' }}>
-          <Col xs={4} className="d-flex justify-content-start">
-            <img src={ktm} alt="KTM Bike" style={{ height: '50vh', width: 'auto', position: 'relative', left: '-150px' }} />
+      <section style={{ marginTop: 20, minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+        <Row className="align-items-center w-100 justify-content-center">
+          <h2>Welcome to GP-Statz</h2>
+          <p>All the stats you need to be a pro moto gp fan.</p>
+          <p>Explore rider stats, team performance, and race history. Stay updated and become a MotoGP expert!</p>
+        </Row>
+        <Row className="align-items-center w-100 justify-content-center">
+          <Col xs={6} className="d-flex justify-content-center">
+            <img src={ktm} alt="KTM Bike" style={{ height: 'auto', width: '40vw' }} />
           </Col>
-          <Col xs={4} className="text-center">
-            <h2>Welcome to GP-Statz</h2>
-            <p>All the stats you need to be a pro moto gp fan.</p>
-            <p>Explore rider stats, team performance, and race history. Stay updated and become a MotoGP expert!</p>
-          </Col>
-          <Col xs={4} className="d-flex justify-content-end">
-            <img src={honda} alt="Honda Bike" style={{ height: '50vh', width: 'auto', position: 'relative', right: '-150px', transform: 'scaleX(-1)' }} />
+          <Col xs={6} className="d-flex justify-content-center">
+            <img src={honda} alt="Honda Bike" style={{ height: 'auto', width: '40vw', transform: 'scaleX(-1)' }} />
           </Col>
         </Row>
       </section>
       {/* Section 2 */}
-      <section style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8f9fa' }}>
+      <section className={"bg-light"} style={{ minHeight: '40vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <h2 className="text-center mb-4">Current Best Riders</h2>
         <Row className="w-100 justify-content-center">
-          {loading ? <>loading...</> : data.map(riderObj => (
+            {loading ? <>loading...</> : (error != null) ? <><p>{error}</p></> : data.map(riderObj => (
             <Col xs="auto" key={riderObj.rider.uuid}>
               <RiderStatCard
                 number={riderObj.rider.number}
@@ -62,6 +63,7 @@ function HomePage() {
                 riderImage={riderObj.riderInfo.career[0].pictures.profile.main}
                 bikeImage={riderObj.riderInfo.career[0].team.picture}
                 flagImage={riderObj.riderInfo.country.flag}
+                position={riderObj.position}
               />
             </Col>
           ))}

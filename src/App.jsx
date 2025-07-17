@@ -3,10 +3,7 @@ import './App.css'
 import AppNavbar from "./components/navbar.jsx";
 import HomePage from "./pages/home.jsx";
 import Footer from "./components/footer.jsx";
-
-function About() {
-  return <><div>This is the About page.</div></>
-}
+import About from "./pages/about.jsx";
 
 function App() {
 
