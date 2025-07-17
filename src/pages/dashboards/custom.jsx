@@ -6,17 +6,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import { increment, setDashLayout } from '../../store/store.js';
 import EmptyWidget from "./widgets/emptyWidget.jsx";
 import TopSpeedWidget from "./widgets/TopSpeedWidget.jsx";
-// import DriverTopSpeedWidget from './widgets/DriverTopSpeedWidget.jsx';
-// import BaseWidget from "./widgets/baseWidgets.jsx";
+import RiderStatsWidget from "./widgets/RiderStatsWidget.jsx";
+import SpeedBySeasonWidget from "./widgets/SpeedBySeasonWidget.jsx";
+import SeasonEvolutionWidget from "./widgets/SeasonEvolutionWidget.jsx";
+import RiderMilestonesWidget from "./widgets/RiderMilestonesWidget.jsx";
+import RiderProfileWidget from "./widgets/RiderProfileWidget.jsx";
+import CareerTimelineWidget from "./widgets/CareerTimelineWidget.jsx";
+import TrophyDisplayWidget from "./widgets/TrophyDisplayWidget.jsx";
+import { useSearchParams } from 'react-router';
+import mockdata from '../../data/mockdata.json';
 
 const CustomDashboard = () => {
     const counter = useSelector((state) => state.counter.value);
     const layout = useSelector((state) => state.dashboard.layout);
     const dispatch = useDispatch();
-
-    // const [layout, setLayout] = useState(dlayout);
     const [gridWidth, setGridWidth] = useState(window.innerWidth);
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [selectedRider, setSelectedRider] = useState(searchParams.get('rider') || '');
 
     const setNewLayout = (newLayout) => {
         dispatch(setDashLayout(newLayout));
@@ -38,6 +44,16 @@ const CustomDashboard = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [layout, gridWidth]);
+
+    useEffect(() => {
+        if (selectedRider) {
+            searchParams.set('rider', selectedRider);
+            setSearchParams(searchParams, { replace: true });
+        } else {
+            searchParams.delete('rider');
+            setSearchParams(searchParams, { replace: true });
+        }
+    }, [selectedRider]);
 
     const addWidget = () => {
         const newWidget = {
@@ -109,21 +125,136 @@ const CustomDashboard = () => {
         setNewLayout([...layout, newWidget]);
     }
 
+    // Widget adders for each analytic
+    const addRiderStatsWidget = () => {
+        const newWidget = {
+            i: `rider-stats-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addSpeedBySeasonWidget = () => {
+        const newWidget = {
+            i: `speed-by-season-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addSeasonEvolutionWidget = () => {
+        const newWidget = {
+            i: `season-evolution-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addRiderMilestonesWidget = () => {
+        const newWidget = {
+            i: `rider-milestones-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 2,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addRiderProfileWidget = () => {
+        const newWidget = {
+            i: `rider-profile-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 2,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addCareerTimelineWidget = () => {
+        const newWidget = {
+            i: `career-timeline-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 4,
+            h: 2,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addTrophyDisplayWidget = () => {
+        const newWidget = {
+            i: `trophy-display-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 3,
+            h: 2,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+
     const getComponent = (id) => {
         switch (id.split('-')[0]) {
             case 'top':
-                return <TopSpeedWidget />;
+                return <TopSpeedWidget riderUuid={selectedRider} />;
+            case 'rider':
+                if (id.startsWith('rider-stats')) return <RiderStatsWidget riderUuid={selectedRider} />;
+                if (id.startsWith('rider-milestones')) return <RiderMilestonesWidget riderUuid={selectedRider} />;
+                if (id.startsWith('rider-profile')) return <RiderProfileWidget riderUuid={selectedRider} />;
+                break;
+            case 'speed':
+                if (id.startsWith('speed-by-season')) return <SpeedBySeasonWidget riderUuid={selectedRider} />;
+                break;
+            case 'season':
+                if (id.startsWith('season-evolution')) return <SeasonEvolutionWidget riderUuid={selectedRider}/>; // Placeholder
+                break;
+            case 'career':
+                if (id.startsWith('career-timeline')) return <CareerTimelineWidget riderUuid={selectedRider} />;
+                break;
+            case 'trophy':
+                if (id.startsWith('trophy-display')) return <TrophyDisplayWidget riderUuid={selectedRider} />;
+                break;
             case 'square':
-                return <div>Square Widget</div>; // Replace with actual Square Widget component
+                return <div>Square Widget</div>;
             case 'custom':
-                return <div>Custom Widget</div>; // Replace with actual Custom Widget component
+                return <div>Custom Widget</div>;
             default:
-                return <EmptyWidget />; // Default case for empty widget
+                return <EmptyWidget />;
         }
     }
 
     return (
         <div>
+            {/*add rider selection */}
+            <div style={{ marginBottom: '20px' }}>
+                <label htmlFor="rider-select">Select Rider:</label>
+                <select
+                    id="rider-select"
+                    value={selectedRider}
+                    onChange={(e) => setSelectedRider(e.target.value)}
+                >
+                    <option value="">-- Select Rider --</option>
+                    {mockdata.riders.map((rider) => (
+                        <option key={rider.id} value={rider.rider.id}>
+                            {rider.rider.full_name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            {/* Add widget buttons UI (insert in render return) */}
+            <div className="widget-buttons">
+                <button onClick={addRiderStatsWidget}>Add Rider Stats</button>
+                <button onClick={addSpeedBySeasonWidget}>Add Speed by Season</button>
+                <button onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>
+                <button onClick={addRiderMilestonesWidget}>Add Rider Milestones</button>
+                <button onClick={addRiderProfileWidget}>Add Rider Profile</button>
+                <button onClick={addCareerTimelineWidget}>Add Career Timeline</button>
+                <button onClick={addTrophyDisplayWidget}>Add Trophy Display</button>
+            </div>
             <button onClick={addWidget}>Add Widget</button>
             <button onClick={addTopSpeedWidget}>Add Top Speed Widget</button>
             <button onClick={addSquareWidget}>Add Square Widget</button>
@@ -216,3 +347,4 @@ const CustomDashboard = () => {
 };
 
 export default CustomDashboard;
+

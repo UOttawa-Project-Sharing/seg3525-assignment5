@@ -1,6 +1,5 @@
 import React from 'react';
 import {RadialBarChart, RadialBar, Legend, ResponsiveContainer, Tooltip} from 'recharts';
-import { useSearchParams } from 'react-router';
 import mockdata from '../../../data/mockdata.json';
 
 // // Example mock data for a single rider
@@ -21,10 +20,8 @@ function getTopSpeedForRider(riderId) {
   return topEntry;
 }
 
-const TopSpeedWidget = () => {
-  const [searchParams] = useSearchParams();
-  const riderId = searchParams.get('rider');
-  const entry = riderId ? getTopSpeedForRider(riderId) : null;
+const TopSpeedWidget = ({ riderUuid }) => {
+  const entry = riderUuid ? getTopSpeedForRider(riderUuid) : null;
 
   // fallback if no rider selected or found
   const topSpeed = entry ? {

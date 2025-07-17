@@ -140,7 +140,7 @@ const PilotsDashboard = () => {
     const getComponent = (id) => {
         switch (id.split('-')[0]) {
             case 'top':
-                return <TopSpeedWidget />;
+                return <TopSpeedWidget riderUuid={selectedRider}/>;
             case 'square':
                 return <div>Square Widget</div>; // Replace with actual Square Widget component
             case 'custom':
