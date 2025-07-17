@@ -5,11 +5,15 @@ import App from './App.jsx'
 import {HashRouter} from "react-router";
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
+import {Provider} from "react-redux";
+import store from './store/store.js';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <Provider store={store}>
+          <HashRouter>
+            <App />
+          </HashRouter>
+      </Provider>
   </StrictMode>,
 )
