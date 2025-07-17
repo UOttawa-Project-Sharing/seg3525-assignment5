@@ -2,13 +2,22 @@ import React, { useState, useEffect } from 'react';
 import GridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, setDashLayout } from '../../store/store';
 
 const Dashboard = () => {
-  const [layout, setLayout] = useState([
-    { i: '1', x: 0, y: 0, w: 2, h: 2 },
-    { i: '2', x: 2, y: 0, w: 2, h: 2 },
-  ]);
+  const counter = useSelector((state) => state.counter.value);
+  const layout = useSelector((state) => state.dashboard.layout);
+  const dispatch = useDispatch();
+
+  // const [layout, setLayout] = useState(dlayout);
   const [gridWidth, setGridWidth] = useState(window.innerWidth);
+
+
+  const setNewLayout = (newLayout) => {
+    // setLayout(newLayout);
+    dispatch(setDashLayout(newLayout));
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,7 +26,7 @@ const Dashboard = () => {
         const newX = Math.min(item.x, Math.floor(gridWidth / 100) - item.w);
         return { ...item, x: newX };
       });
-      setLayout(updatedLayout);
+      setNewLayout(updatedLayout);
     };
 
     window.addEventListener('resize', handleResize);
@@ -35,7 +44,7 @@ const Dashboard = () => {
       w: 2,
       h: 2,
     };
-    setLayout([...layout, newWidget]);
+    setNewLayout([...layout, newWidget]);
   };
 
   const addSquareWidget = () => {
@@ -48,7 +57,7 @@ const Dashboard = () => {
       static: false,
       isResizable: true,
     };
-    setLayout([...layout, newWidget]);
+    setNewLayout([...layout, newWidget]);
   };
 
   const addCustomWidget = () => {
@@ -59,15 +68,15 @@ const Dashboard = () => {
       w: 3,
       h: 1.5, // restricted ratio
     };
-    setLayout([...layout, newWidget]);
+    setNewLayout([...layout, newWidget]);
   };
 
   const removeWidget = (id) => {
-    setLayout(layout.filter((item) => item.i !== id));
+    setNewLayout(layout.filter((item) => item.i !== id));
   };
 
   const clearWidgets = () => {
-    setLayout([]);
+    setNewLayout([]);
   };
 
   const enforceSquareRatio = (newLayout) => {
@@ -83,7 +92,7 @@ const Dashboard = () => {
       }
       return item;
     });
-    setLayout(updatedLayout);
+    setNewLayout(updatedLayout);
   };
 
   return (
@@ -145,6 +154,10 @@ const Dashboard = () => {
           </div>
         ))}
       </GridLayout>
+      <div style={{ marginTop: '20px' }}>
+        <button onClick={() => dispatch(increment())}>Increment Counter</button>
+        <p>Counter Value: {counter}</p>
+      </div>
     </div>
   );
 };
