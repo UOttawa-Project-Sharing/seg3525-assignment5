@@ -1,9 +1,16 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import {Link} from "react-router";
 import { useLocation } from 'react-router';
+import { useState } from 'react';
 
 function AppNavbar() {
   const location = useLocation();
+  const [language, setLanguage] = useState('en');
+
+  const toggleLanguage = () => {
+    setLanguage((prevLang) => (prevLang === 'en' ? 'fr' : 'en'));
+  };
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -13,6 +20,8 @@ function AppNavbar() {
           <Nav className="ms-auto"> {/* Use ms-auto to push links to the right */}
             <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Home</Nav.Link>
             <Nav.Link as={Link} to="/about" active={location.pathname === '/about'}>About</Nav.Link>
+            <Nav.Link as={Link} to="/dash" active={location.pathname.startsWith('/dash')}>Dashboard</Nav.Link>
+            <Nav.Link onClick={toggleLanguage}>{language === 'en' ? 'FR' : 'EN'}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
