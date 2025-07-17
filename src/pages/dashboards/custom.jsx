@@ -5,6 +5,7 @@ import 'react-resizable/css/styles.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, setDashLayout } from '../../store/store.js';
 import EmptyWidget from "./widgets/emptyWidget.jsx";
+import TopSpeedWidget from "./widgets/TopSpeedWidget.jsx";
 // import DriverTopSpeedWidget from './widgets/DriverTopSpeedWidget.jsx';
 // import BaseWidget from "./widgets/baseWidgets.jsx";
 
@@ -98,10 +99,12 @@ const CustomDashboard = () => {
     const addTopSpeedWidget = () => {
         const newWidget = {
             i: `top-speed-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 4) % Math.floor(gridWidth / 100),
             y: Infinity,
-            w: 2,
-            h: 2,
+            w: 4,
+            h: 4,
+            minW: 4,
+            minH: 4,
         };
         setNewLayout([...layout, newWidget]);
     }
@@ -109,7 +112,7 @@ const CustomDashboard = () => {
     const getComponent = (id) => {
         switch (id.split('-')[0]) {
             case 'top':
-                return <div>Top Speed Widget</div>; // Replace with actual Top Speed Widget component
+                return <TopSpeedWidget />;
             case 'square':
                 return <div>Square Widget</div>; // Replace with actual Square Widget component
             case 'custom':
