@@ -1,0 +1,246 @@
+{
+  "sessions": [
+    {
+      "session_id": "session1-uuid",
+      "session_name": "Italian GP - Race",
+      "classification": [
+        {
+          "id": "1",
+          "position": 1,
+          "points": 25,
+          "rider": {
+            "id": "rider1-uuid",
+            "full_name": "Francesco Bagnaia",
+            "country": { "iso": "IT", "name": "Italy" },
+            "legacy_id": 8273,
+            "number": 1,
+            "riders_api_uuid": "66b78301-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team1-uuid",
+            "name": "Ducati Lenovo Team",
+            "legacy_id": 15
+          },
+          "constructor": {
+            "id": "constructor1-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 12, "time": "01:47.617" },
+          "top_speed": 347.8
+        },
+        {
+          "id": "2",
+          "position": 2,
+          "points": 20,
+          "rider": {
+            "id": "rider2-uuid",
+            "full_name": "Jorge Martin",
+            "country": { "iso": "ES", "name": "Spain" },
+            "legacy_id": 8888,
+            "number": 89,
+            "riders_api_uuid": "aa123456-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team2-uuid",
+            "name": "Prima Pramac Racing",
+            "legacy_id": 23
+          },
+          "constructor": {
+            "id": "constructor1-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 8, "time": "01:47.900" },
+          "top_speed": 346.5
+        },
+        {
+          "id": "3",
+          "position": 3,
+          "points": 16,
+          "rider": {
+            "id": "rider3-uuid",
+            "full_name": "Marc Marquez",
+            "country": { "iso": "ES", "name": "Spain" },
+            "legacy_id": 7444,
+            "number": 93,
+            "riders_api_uuid": "bb654321-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team3-uuid",
+            "name": "Gresini Racing MotoGP",
+            "legacy_id": 77
+          },
+          "constructor": {
+            "id": "constructor2-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 15, "time": "01:48.110" },
+          "top_speed": 344.2
+        }
+      ]
+    },
+    {
+      "session_id": "session2-uuid",
+      "session_name": "Spanish GP - Race",
+      "classification": [
+        {
+          "id": "4",
+          "position": 1,
+          "points": 25,
+          "rider": {
+            "id": "rider2-uuid",
+            "full_name": "Jorge Martin",
+            "country": { "iso": "ES", "name": "Spain" },
+            "legacy_id": 8888,
+            "number": 89,
+            "riders_api_uuid": "aa123456-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team2-uuid",
+            "name": "Prima Pramac Racing",
+            "legacy_id": 23
+          },
+          "constructor": {
+            "id": "constructor1-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 11, "time": "01:38.500" },
+          "top_speed": 345.0
+        },
+        {
+          "id": "1",
+          "position": 2,
+          "points": 20,
+          "rider": {
+            "id": "rider1-uuid",
+            "full_name": "Francesco Bagnaia",
+            "country": { "iso": "IT", "name": "Italy" },
+            "legacy_id": 8273,
+            "number": 1,
+            "riders_api_uuid": "66b78301-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team1-uuid",
+            "name": "Ducati Lenovo Team",
+            "legacy_id": 15
+          },
+          "constructor": {
+            "id": "constructor1-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 14, "time": "01:38.700" },
+          "top_speed": 344.8
+        },
+        {
+          "id": "5",
+          "position": 3,
+          "points": 16,
+          "rider": {
+            "id": "rider4-uuid",
+            "full_name": "Enea Bastianini",
+            "country": { "iso": "IT", "name": "Italy" },
+            "legacy_id": 9831,
+            "number": 23,
+            "riders_api_uuid": "cc123789-5826-4986-b11e-fa68a7bd77a7"
+          },
+          "team": {
+            "id": "team4-uuid",
+            "name": "Ducati Lenovo Team",
+            "legacy_id": 15
+          },
+          "constructor": {
+            "id": "constructor1-uuid",
+            "name": "Ducati",
+            "legacy_id": 110
+          },
+          "best_lap": { "number": 9, "time": "01:38.950" },
+          "top_speed": 343.4
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "id": "1",
+      "position": 1,
+      "points": 250,
+      "rider": {
+        "id": "rider1-uuid",
+        "full_name": "Francesco Bagnaia",
+        "country": {
+          "iso": "IT",
+          "name": "Italy"
+        },
+        "legacy_id": 8273,
+        "number": 1,
+        "riders_api_uuid": "66b78301-5826-4986-b11e-fa68a7bd77a7"
+      },
+      "team": {
+        "id": "team1-uuid",
+        "name": "Ducati Lenovo Team",
+        "legacy_id": 15
+      },
+      "constructor": {
+        "id": "constructor1-uuid",
+        "name": "Ducati",
+        "legacy_id": 110
+      }
+    },
+    {
+      "id": "2",
+      "position": 2,
+      "points": 220,
+      "rider": {
+        "id": "rider2-uuid",
+        "full_name": "Jorge Martin",
+        "country": {
+          "iso": "ES",
+          "name": "Spain"
+        },
+        "legacy_id": 8888,
+        "number": 89,
+        "riders_api_uuid": "aa123456-5826-4986-b11e-fa68a7bd77a7"
+      },
+      "team": {
+        "id": "team2-uuid",
+        "name": "Prima Pramac Racing",
+        "legacy_id": 23
+      },
+      "constructor": {
+        "id": "constructor1-uuid",
+        "name": "Ducati",
+        "legacy_id": 110
+      }
+    },
+    {
+      "id": "3",
+      "position": 3,
+      "points": 205,
+      "rider": {
+        "id": "rider3-uuid",
+        "full_name": "Marc Marquez",
+        "country": {
+          "iso": "ES",
+          "name": "Spain"
+        },
+        "legacy_id": 7444,
+        "number": 93,
+        "riders_api_uuid": "bb654321-5826-4986-b11e-fa68a7bd77a7"
+      },
+      "team": {
+        "id": "team3-uuid",
+        "name": "Gresini Racing MotoGP",
+        "legacy_id": 77
+      },
+      "constructor": {
+        "id": "constructor2-uuid",
+        "name": "Ducati",
+        "legacy_id": 110
+      }
+    }
+  ]
+}

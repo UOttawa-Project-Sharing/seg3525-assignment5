@@ -4,7 +4,7 @@ import AppNavbar from "./components/navbar.jsx";
 import HomePage from "./pages/home.jsx";
 import Footer from "./components/footer.jsx";
 import About from "./pages/about.jsx";
-import Dashboard from "./pages/dashboard/dashboard.jsx";
+import Dashboard from "./pages/dashboard.jsx";
 
 function App() {
 

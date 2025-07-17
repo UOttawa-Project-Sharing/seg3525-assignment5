@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import {Link} from "react-router";
 import { useLocation } from 'react-router';
 import { useState } from 'react';
@@ -19,8 +19,13 @@ function AppNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto"> {/* Use ms-auto to push links to the right */}
             <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" active={location.pathname === '/about'}>About</Nav.Link>
-            <Nav.Link as={Link} to="/dash" active={location.pathname.startsWith('/dash')}>Dashboard</Nav.Link>
+            <Nav.Link as={Link} to="/about" active={location.pathname === '/`about'}>About</Nav.Link>
+            <NavDropdown title="Dashboard" id="dashboard-dropdown">
+              <NavDropdown.Item as={Link} to="/dash?type=custom" active={location.pathname === '/dash?type=custom'}>Custom</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/dash?type=pilots" active={location.pathname === '/dash?type=pilots'}>Pilots</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/dash?type=race" active={location.pathname === '/dash?type=race'}>Race</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/dash?type=seasons" active={location.pathname === '/dash?type=seasons'}>Seasons</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link onClick={toggleLanguage}>{language === 'en' ? 'FR' : 'EN'}</Nav.Link>
           </Nav>
         </Navbar.Collapse>

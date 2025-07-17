@@ -18,7 +18,7 @@ const dashboardSlice = createSlice({
       layout: [
         { i: '1', x: 0, y: 0, w: 2, h: 2 },
         { i: '2', x: 2, y: 0, w: 2, h: 2 },
-      ]
+      ],
     },
     reducers: {
       setDashLayout: (state, action) => {
