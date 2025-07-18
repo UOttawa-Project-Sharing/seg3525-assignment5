@@ -9,7 +9,7 @@
           "position": 1,
           "points": 25,
           "rider": {
-            "id": "rider1-uuid",
+            "id": "10060",
             "full_name": "Francesco Bagnaia",
             "country": { "iso": "IT", "name": "Italy" },
             "legacy_id": 8273,
@@ -34,7 +34,7 @@
           "position": 2,
           "points": 20,
           "rider": {
-            "id": "rider2-uuid",
+            "id": "10045",
             "full_name": "Jorge Martin",
             "country": { "iso": "ES", "name": "Spain" },
             "legacy_id": 8888,
@@ -59,7 +59,7 @@
           "position": 3,
           "points": 16,
           "rider": {
-            "id": "rider3-uuid",
+            "id": "7444",
             "full_name": "Marc Marquez",
             "country": { "iso": "ES", "name": "Spain" },
             "legacy_id": 7444,
@@ -90,7 +90,7 @@
           "position": 1,
           "points": 25,
           "rider": {
-            "id": "rider2-uuid",
+            "id": "10045",
             "full_name": "Jorge Martin",
             "country": { "iso": "ES", "name": "Spain" },
             "legacy_id": 8888,
@@ -115,7 +115,7 @@
           "position": 2,
           "points": 20,
           "rider": {
-            "id": "rider1-uuid",
+            "id": "10060",
             "full_name": "Francesco Bagnaia",
             "country": { "iso": "IT", "name": "Italy" },
             "legacy_id": 8273,
@@ -163,13 +163,33 @@
       ]
     }
   ],
+  "events": [
+    {
+      "id": "event1",
+      "name": "British GP",
+      "date": "2025-08-03T14:00:00Z",
+      "location": "Silverstone Circuit, UK"
+    },
+    {
+      "id": "event2",
+      "name": "Austrian GP",
+      "date": "2025-08-17T14:00:00Z",
+      "location": "Red Bull Ring, Austria"
+    },
+    {
+      "id": "event3",
+      "name": "San Marino GP",
+      "date": "2025-09-07T14:00:00Z",
+      "location": "Misano World Circuit, Italy"
+    }
+  ],
   "riders": [
     {
       "id": "1",
       "position": 1,
       "points": 250,
       "rider": {
-        "id": "rider1-uuid",
+        "id": "10060",
         "full_name": "Francesco Bagnaia",
         "country": {
           "iso": "IT",
@@ -195,7 +215,7 @@
       "position": 2,
       "points": 220,
       "rider": {
-        "id": "rider2-uuid",
+        "id": "10045",
         "full_name": "Jorge Martin",
         "country": {
           "iso": "ES",
@@ -221,7 +241,7 @@
       "position": 3,
       "points": 205,
       "rider": {
-        "id": "rider3-uuid",
+        "id": "7444",
         "full_name": "Marc Marquez",
         "country": {
           "iso": "ES",

@@ -59,14 +59,14 @@ export const getSessions = async (eventUuid, categoryUuid) => {
     return res.data;
 };
 
-// 7. Get Session
+// 7. Get Session - https://api.motogp.pulselive.com/motogp/v1/results/sessions/{sessionId}
 export const getSession = async (sessionId) => {
     const url = proxiedUrl(`/results/sessions/${sessionId}`);
     const res = await axios.get(url);
     return res.data;
 };
 
-// 8. Get Classification for a session
+// 8. Get Classification for a session - https://api.motogp.pulselive.com/motogp/v1/results/session/{sessionId}/classification?seasonYear={}&test={}
 export const getClassification = async (sessionId, seasonYear, isTest) => {
     const url = proxiedUrl(
         `/results/session/${sessionId}/classification`,
@@ -76,14 +76,14 @@ export const getClassification = async (sessionId, seasonYear, isTest) => {
     return res.data;
 };
 
-// 9. Get Entry List (riders in event/category)
+// 9. Get Entry List (riders in event/category) - https://api.motogp.pulselive.com/motogp/v1/results/event/{eventId}/entry?categoryUuid={}
 export const getEntryList = async (eventId, categoryUuid) => {
     const url = proxiedUrl(`/event/${eventId}/entry`, { categoryUuid });
     const res = await axios.get(url);
     return res.data;
 };
 
-// 10. Get Grid Positions for event/category
+// 10. Get Grid Positions for event/category - https://api.motogp.pulselive.com/motogp/v1/results/event/{eventId}/category/{categoryId}/grid
 export const getGridPositions = async (eventId, categoryId) => {
     const url = proxiedUrl(`/results/event/${eventId}/category/${categoryId}/grid`);
     const res = await axios.get(url);
@@ -97,14 +97,14 @@ export const getStandings = async (seasonUuid, categoryUuid) => {
     return res.data;
 };
 
-// 12. Get Standings Files
+// 12. Get Standings Files - https://api.motogp.pulselive.com/motogp/v1/results/standings/files?seasonUuid={}&categoryUuid={}
 export const getStandingsFiles = async (seasonUuid, categoryUuid) => {
     const url = proxiedUrl("/results/standings/files", { seasonUuid, categoryUuid });
     const res = await axios.get(url);
     return res.data;
 };
 
-// 13. Get Rider qualifying standings (BMW Award)
+// 13. Get Rider qualifying standings (BMW Award) - https://api.motogp.pulselive.com/motogp/v1/results/standings/bmwaward?seasonUuid={}
 export const getBMWAward = async (seasonUuid) => {
     const url = proxiedUrl("/results/standings/bmwaward", { seasonUuid });
     const res = await axios.get(url);
@@ -113,35 +113,35 @@ export const getBMWAward = async (seasonUuid) => {
 
 // Broadcast API
 
-// 14. Season categories (broadcast)
+// 14. Season categories (broadcast) - https://api.motogp.pulselive.com/motogp/v1/categories?seasonYear={}
 export const getBroadcastSeasonCategories = async (seasonYear) => {
     const url = proxiedUrl("/categories", { seasonYear });
     const res = await axios.get(url);
     return res.data;
 };
 
-// 15. Get Broadcast Events by seasonYear
+// 15. Get Broadcast Events by seasonYear - https://api.motogp.pulselive.com/motogp/v1/events?seasonYear={}
 export const getBroadcastEvents = async (seasonYear) => {
     const url = proxiedUrl("/events", { seasonYear });
     const res = await axios.get(url);
     return res.data;
 };
 
-// 16. Get single Broadcast Event
+// 16. Get single Broadcast Event - https://api.motogp.pulselive.com/motogp/v1/events/{eventId}
 export const getBroadcastEvent = async (eventId) => {
     const url = proxiedUrl(`/events/${eventId}`);
     const res = await axios.get(url);
     return res.data;
 };
 
-// 17. Get all riders (current season)
+// 17. Get all riders (current season) - https://api.motogp.pulselive.com/motogp/v1/riders
 export const getRiders = async () => {
     const url = proxiedUrl("/riders");
     const res = await axios.get(url);
     return res.data;
 };
 
-// 18. Get single rider (by rider id)
+// 18. Get single rider (by rider id) - https://api.motogp.pulselive.com/motogp/v1/riders/{riderId}
 export const getRider = async (riderId) => {
     const url = proxiedUrl(`/riders/${riderId}`);
     const res = await axios.get(url);
@@ -155,14 +155,14 @@ export const getRiderStats = async (legacyId) => {
     return res.data;
 };
 
-// 20. Get rider statistics by season (by legacyId)
+// 20. Get rider statistics by season (by legacyId) - https://api.motogp.pulselive.com/motogp/v1/riders/{legacyId}/statistics
 export const getRiderStatsBySeason = async (legacyId) => {
     const url = proxiedUrl(`/riders/${legacyId}/statistics`);
     const res = await axios.get(url);
     return res.data;
 };
 
-// 21. Get teams (and all riders/all seasons)
+// 21. Get teams (and all riders/all seasons) - https://api.motogp.pulselive.com/motogp/v1/teams?categoryUuid={}&seasonYear={}
 export const getTeams = async (categoryUuid, seasonYear) => {
     const url = proxiedUrl("/teams", { categoryUuid, seasonYear });
     const res = await axios.get(url);
@@ -202,3 +202,49 @@ export const getMotoGPTop3Riders = async () => {
     );
     // return top3;
 };
+
+// retrive all riders { full_name, uuid, leagcy_id }
+export const getRidersUuids = async () => {
+    const riders = await getRiders();
+    return riders.map((rider) => ({
+        full_name: rider.name + " " + rider.surname,
+        uuid: rider.id,
+        legacy_id: rider.legacy_id,
+    }));
+}
+
+export const getRiderNameByLegacyId = async (legacyId) => {
+    const riders = await getRiders();
+    const rider = riders.find(r => r.legacy_id === parseInt(legacyId, 10));
+    if (!rider) {
+        throw new Error(`Rider with legacy ID ${legacyId} not found.`);
+    }
+    return rider.name + " " + rider.surname;
+}
+
+export const getRiderByUuid = async (uuid) => {
+    const riders = await getRiders();
+    const rider = riders.find(r => r.id === uuid);
+    if (!rider) {
+        throw new Error(`Rider with UUID ${uuid} not found.`);
+    }
+    return rider;
+}
+
+export const getRiderByLegacyId = async (legacyId) => {
+    const riders = await getRiders();
+    const rider = riders.find(r => r.legacy_id === parseInt(legacyId, 10));
+    if (!rider) {
+        throw new Error(`Rider with legacy ID ${legacyId} not found.`);
+    }
+    return rider;
+}
+
+export const getCurrentSeason = async () => {
+    const seasons = await getSeasons();
+    const currentSeason = seasons.find(season => season.current);
+    if (!currentSeason) {
+        throw new Error("No current season found.");
+    }
+    return currentSeason;
+}
