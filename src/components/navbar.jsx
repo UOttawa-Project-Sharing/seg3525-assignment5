@@ -1,14 +1,16 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import {Link} from "react-router";
 import { useLocation } from 'react-router';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleLanguage } from '../store/store';
 
 function AppNavbar() {
   const location = useLocation();
-  const [language, setLanguage] = useState('en');
+  const language = useSelector((state) => state.language.value);
+  const dispatch = useDispatch();
 
-  const toggleLanguage = () => {
-    setLanguage((prevLang) => (prevLang === 'en' ? 'fr' : 'en'));
+  const handleToggleLanguage = () => {
+    dispatch(toggleLanguage());
   };
 
   return (
@@ -26,7 +28,7 @@ function AppNavbar() {
               <NavDropdown.Item as={Link} to="/dash?type=race" active={location.pathname === '/dash?type=race'}>Race</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/dash?type=seasons" active={location.pathname === '/dash?type=seasons'}>Seasons</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link onClick={toggleLanguage}>{language === 'en' ? 'FR' : 'EN'}</Nav.Link>
+            <Nav.Link onClick={handleToggleLanguage}>{language.toUpperCase()}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

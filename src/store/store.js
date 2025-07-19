@@ -29,10 +29,26 @@ const dashboardSlice = createSlice({
 
 export const { setDashLayout } = dashboardSlice.actions;
 
+const languageSlice = createSlice({
+  name: 'language',
+  initialState: { value: 'en' },
+  reducers: {
+    toggleLanguage: (state) => {
+      state.value = state.value === 'en' ? 'fr' : 'en';
+    },
+    setLanguage: (state, action) => {
+      state.value = action.payload;
+    },
+  },
+});
+
+export const { toggleLanguage, setLanguage } = languageSlice.actions;
+
 const store = configureStore({
   reducer: {
     counter: counterSlice.reducer,
     dashboard: dashboardSlice.reducer,
+    language: languageSlice.reducer,
   },
 });
 

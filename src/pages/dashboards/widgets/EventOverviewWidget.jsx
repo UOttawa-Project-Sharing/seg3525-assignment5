@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Row, Col, Form, Spinner, Badge, Container, Table } from 'react-bootstrap';
 import { getCategories, getFinishedEventByYear } from "../../../data/jsonAPI.js";
+import {useSelector} from "react-redux";
 
 export function EventOverviewWidget({ eventId }) {
     const [events, setEvents] = useState(null);
@@ -8,6 +9,7 @@ export function EventOverviewWidget({ eventId }) {
     const [categories, setCategories] = useState(null);
     const [year, setYear] = useState(2025);
     const [loadingEvents, setLoadingEvents] = useState(false);
+    const language = useSelector((state) => state.language.value);
 
     // Load season years (categories)
     useEffect(() => {
@@ -142,12 +144,12 @@ export function EventOverviewWidget({ eventId }) {
                                             <Card.Body>
                                                 <div className="fw-bold mb-2">Circuit Description</div>
                                                 {event.circuit.circuit_descriptions
-                                                    .filter(desc => desc.language === 'en')
+                                                    .filter(desc => desc.language === language)
                                                     .map(desc => (
                                                         <div key={desc.id} dangerouslySetInnerHTML={{ __html: desc.description }} />
                                                     ))}
                                                 {/* Fallback: show first description if "en" not available */}
-                                                {event.circuit.circuit_descriptions.filter(desc => desc.language === 'en').length === 0 &&
+                                                {event.circuit.circuit_descriptions.filter(desc => desc.language === language).length === 0 &&
                                                     event.circuit.circuit_descriptions.length > 0 && (
                                                         <div key={event.circuit.circuit_descriptions[0].id} dangerouslySetInnerHTML={{ __html: event.circuit.circuit_descriptions[0].description }} />
                                                     )}
