@@ -166,7 +166,7 @@ export function EventOverviewWidget({ eventId }) {
                                                 <img
                                                     src={event.circuit.track.assets.info.path}
                                                     alt="Circuit SVG"
-                                                    style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', background: '#f8f9fa', border: '1px solid #eee' }}
+                                                    style={{ width: '100%', height: 'auto', borderRadius: '0.5rem'/*, background: '#f8f9fa', border: '1px solid #eee'*/ }}
                                                 />
                                             </Card.Body>
                                         </Card>
