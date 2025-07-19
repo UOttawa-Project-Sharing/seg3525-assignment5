@@ -105,8 +105,20 @@ const CustomDashboard = () => {
             }
         };
         fetch();
-        getFinishedEventByYear(selectedYear).then(setEvents);
-        setSelectedEvent(events[0]?.id || '');
+        getFinishedEventByYear(selectedYear).then((evs) => {
+            setEvents(evs);
+            if (evs && evs.length > 0) {
+                if (evs.find(e => e.id === selectedEvent) === null) {
+                    setSelectedEvent(evs[0].id);
+                }
+            } else {
+                setSelectedEvent(null);
+            }
+        });
+        const cat = categories.find(c => c.seasonYear === Number(selectedYear));
+        if (cat && cat.categories.find(c => c.legacy_id === selectedCategory) === null) {
+            setSelectedCategory(cat?.categories[0]?.legacy_id || '');
+        }
     }, [selectedYear]);
 
     useEffect(() => {
@@ -118,6 +130,16 @@ const CustomDashboard = () => {
             setSearchParams(searchParams, { replace: true });
         }
     }, [selectedEvent]);
+
+    useEffect(() => {
+        if (selectedCategory) {
+            searchParams.set('category', selectedCategory);
+            setSearchParams(searchParams, { replace: true });
+        } else {
+            searchParams.delete('category');
+            setSearchParams(searchParams, { replace: true });
+        }
+    }, [selectedCategory]);
 
     const addWidget = () => {
         const newWidget = {
