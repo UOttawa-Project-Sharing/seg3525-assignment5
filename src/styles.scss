@@ -14,3 +14,24 @@
 //  font-weight: bold;
 //  margin: 2rem 0;
 //}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  background: #23272b;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #444b53;
+  border-radius: 10px;
+  border: 2px solid #23272b;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #636e7b;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #444b53 #23272b;
+}

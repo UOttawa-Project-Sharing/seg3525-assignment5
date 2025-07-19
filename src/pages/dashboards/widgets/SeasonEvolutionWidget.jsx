@@ -23,8 +23,8 @@ function getCurrentYearRiderPoles(riderId) {
     .filter(Boolean);
 }
 
-const SeasonEvolutionWidget = ({ riderUuid }) => {
-  const data = getCurrentYearRiderPoles(riderUuid);
+const SeasonEvolutionWidget = ({ riderLegacyId }) => {
+  const data = getCurrentYearRiderPoles(riderLegacyId);
   return (
     <div className="widget season-evolution-widget">
       <h3>Pole Position Evolution (Current Year)</h3>

@@ -20,8 +20,8 @@ function getTopSpeedForRider(riderId) {
   return topEntry;
 }
 
-const TopSpeedWidget = ({ riderUuid }) => {
-  const entry = riderUuid ? getTopSpeedForRider(riderUuid) : null;
+const TopSpeedWidget = ({ riderLegacyId }) => {
+  const entry = riderLegacyId ? getTopSpeedForRider(riderLegacyId) : null;
 
   // fallback if no rider selected or found
   const topSpeed = entry ? {

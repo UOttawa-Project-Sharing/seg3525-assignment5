@@ -12,7 +12,8 @@ function RiderStatCard({
                            podiums,
                            riderImage,
                            bikeImage,
-                           position
+                           position,
+                           wins,
                        }) {
     return (
         <Card
@@ -140,7 +141,7 @@ function RiderStatCard({
                 </div>
                 <div
                     style={{
-                        display: 'flex',
+                        // display: 'flex',
                         alignItems: 'center',
                         background: 'rgba(36,198,255,0.4)',
                         color: '#004096',
@@ -154,6 +155,23 @@ function RiderStatCard({
                     <AwardFill style={{ marginRight: 5 }} size={20} />
                     Position: {position}
                 </div>
+                {wins > 0 && (
+                    <div
+                        style={{
+                            marginTop: 12,
+                            padding: '0.4em 1.1em',
+                            background: 'rgba(255,36,36,0.4)',
+                            color: '#960000',
+                            borderRadius: 20,
+                            fontWeight: 600,
+                            fontSize: 16,
+                            boxShadow: '0 1px 2px #d800001a',
+                        }}
+                    >
+                        <i className={"bi bi-trophy-fill"} style={{ marginRight: 5 }}></i>
+                        Wins: {wins}
+                    </div>
+                )}
             </Card.Body>
         </Card>
     );

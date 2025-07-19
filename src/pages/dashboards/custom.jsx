@@ -19,8 +19,14 @@ import mockdata from '../../data/mockdata.json';
 import {getRidersUuids} from "../../data/getterAPI.js";
 import NextEventWidget from "./widgets/NextEventWidget.jsx";
 import { TeamAnalysisWidget, TeamAchievementsWidget, TeamComparisonWidget, TeamPerformanceCardsWidget } from "./widgets/TeamWidgets.jsx";
-import { SessionClassificationWidget, SeasonStandingsLeaderboardWidget, BMWAwardWidget, RiderSeasonHistoryWidget } from "./widgets/StandingsWidgets.jsx";
-import { CircuitComparisonWidget, SessionTypeWeatherWidget, EventOverviewWidget } from "./widgets/EventPerformanceWidgets.jsx";
+import { SessionClassificationWidget } from "./widgets/SessionClassificationWidget.jsx";
+import { SeasonStandingsLeaderboardWidget } from "./widgets/SeasonStandingsLeaderboardWidget.jsx";
+import { BMWAwardWidget } from "./widgets/BMWAwardWidget.jsx";
+import { RiderSeasonHistoryWidget } from "./widgets/RiderSeasonHistoryWidget.jsx";
+import { CircuitComparisonWidget } from "./widgets/CircuitComparisonWidget.jsx";
+import { SessionTypeWeatherWidget } from "./widgets/SessionTypeWeatherWidget.jsx";
+import { EventOverviewWidget } from "./widgets/EventOverviewWidget.jsx";
+import {getRidersIds} from "../../data/jsonAPI.js";
 
 const CustomDashboard = () => {
     const counter = useSelector((state) => state.counter.value);
@@ -63,7 +69,7 @@ const CustomDashboard = () => {
     }, [selectedRider]);
 
     useEffect(() => {
-        getRidersUuids().then(setRiders);
+        getRidersIds().then(setRiders);
     }, []);
 
     const addWidget = () => {
@@ -281,16 +287,16 @@ const CustomDashboard = () => {
         };
         setNewLayout([...layout, newWidget]);
     };
-    const addSeasonStandingsLeaderboardWidget = () => {
-        const newWidget = {
-            i: `season-standings-leaderboard-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
-            y: Infinity,
-            w: 4,
-            h: 3,
-        };
-        setNewLayout([...layout, newWidget]);
-    };
+    // const addSeasonStandingsLeaderboardWidget = () => {
+    //     const newWidget = {
+    //         i: `season-standings-leaderboard-${layout.length + 1}`,
+    //         x: (layout.length * 2) % Math.floor(gridWidth / 100),
+    //         y: Infinity,
+    //         w: 4,
+    //         h: 3,
+    //     };
+    //     setNewLayout([...layout, newWidget]);
+    // };
     const addBMWAwardWidget = () => {
         const newWidget = {
             i: `bmw-award-${layout.length + 1}`,
@@ -347,31 +353,31 @@ const CustomDashboard = () => {
     const getComponent = (id) => {
         switch (id.split('-')[0]) {
             case 'top':
-                return <TopSpeedWidget riderUuid={selectedRider} />;
+                return <TopSpeedWidget riderLegacyId={selectedRider} />;
             case 'rider':
-                if (id.startsWith('rider-stats')) return <RiderStatsWidget riderUuid={selectedRider} />;
-                if (id.startsWith('rider-milestones')) return <RiderMilestonesWidget riderUuid={selectedRider} />;
-                if (id.startsWith('rider-profile')) return <RiderProfileWidget riderUuid={selectedRider} />;
+                if (id.startsWith('rider-stats')) return <RiderStatsWidget riderLegacyId={selectedRider} />;
+                if (id.startsWith('rider-milestones')) return <RiderMilestonesWidget riderLegacyId={selectedRider} />;
+                if (id.startsWith('rider-profile')) return <RiderProfileWidget riderLegacyId={selectedRider} />;
                 if (id.startsWith('rider-season-history')) return <RiderSeasonHistoryWidget riderName={selectedRider} />;
                 break;
             case 'speed':
-                if (id.startsWith('speed-by-season')) return <SpeedBySeasonWidget riderUuid={selectedRider} />;
+                if (id.startsWith('speed-by-season')) return <SpeedBySeasonWidget riderLegacyId={selectedRider} />;
                 break;
             case 'season':
-                if (id.startsWith('season-evolution')) return <SeasonEvolutionWidget riderUuid={selectedRider}/>; // Placeholder
+                if (id.startsWith('season-evolution')) return <SeasonEvolutionWidget riderLegacyId={selectedRider}/>; // Placeholder
                 if (id.startsWith('season-standings-leaderboard')) return <SeasonStandingsLeaderboardWidget />;
                 break;
             case 'career':
-                if (id.startsWith('career-timeline')) return <CareerTimelineWidget riderUuid={selectedRider} />;
+                if (id.startsWith('career-timeline')) return <CareerTimelineWidget riderLegacyId={selectedRider} />;
                 break;
             case 'trophy':
-                if (id.startsWith('trophy-display')) return <TrophyDisplayWidget riderUuid={selectedRider} />;
+                if (id.startsWith('trophy-display')) return <TrophyDisplayWidget riderLegacyId={selectedRider} />;
                 break;
             case 'championship':
                 if (id.startsWith('championship-standings')) return <ChampionshipStandingsWidget />;
                 break;
             case 'next':
-                if (id.startsWith('next-event')) return <NextEventWidget riderUuid={selectedRider} />;
+                if (id.startsWith('next-event')) return <NextEventWidget riderLegacyId={selectedRider} />;
                 break;
             case 'square':
                 return <div>Square Widget</div>;
@@ -418,31 +424,32 @@ const CustomDashboard = () => {
             </div>
             {/* Add widget buttons UI (insert in render return) */}
             <div className="widget-buttons">
-                <button onClick={addRiderStatsWidget}>Add Rider Stats</button>
-                <button onClick={addSpeedBySeasonWidget}>Add Speed by Season</button>
-                <button onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>
-                <button onClick={addRiderMilestonesWidget}>Add Rider Milestones</button>
-                <button onClick={addRiderProfileWidget}>Add Rider Profile</button>
-                <button onClick={addCareerTimelineWidget}>Add Career Timeline</button>
-                <button onClick={addTrophyDisplayWidget}>Add Trophy Display</button>
-                <button onClick={addChampionshipStandingsWidget}>Add Championship Standings</button>
-                <button onClick={addNextEventWidget}>Add Next Event Widget</button>
-                <button onClick={addTeamAnalysisWidget}>Add Team Analysis</button>
-                <button onClick={addTeamAchievementsWidget}>Add Team Achievements</button>
-                <button onClick={addTeamComparisonWidget}>Add Team Comparison</button>
-                <button onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>
-                <button onClick={addSessionClassificationWidget}>Add Session Classification</button>
-                <button onClick={addSeasonStandingsLeaderboardWidget}>Add Season Standings</button>
-                <button onClick={addBMWAwardWidget}>Add BMW Award</button>
-                <button onClick={() => addRiderSeasonHistoryWidget("rider1")}>Add Rider Season History</button>
-                <button onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>
-                <button onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>
-                <button onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>
+                <button style={{background:"green"}} onClick={addRiderStatsWidget}>Add Rider Stats</button>
+                {/*<button style={{background:"red"}} onClick={addSpeedBySeasonWidget}>Add Speed by Season</button>*/}
+                <button style={{background:"red"}} onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>
+                <button style={{background:"green"}} onClick={addRiderMilestonesWidget}>Add Rider Milestones</button>
+                <button style={{background:"green"}} onClick={addRiderProfileWidget}>Add Rider Profile</button>
+                <button style={{background:"green"}} onClick={addCareerTimelineWidget}>Add Career Timeline</button>
+                {/*<button style={{background:"red"}} onClick={addTrophyDisplayWidget}>Add Trophy Display</button>*/}
+                <button style={{background:"green"}} onClick={addChampionshipStandingsWidget}>Add Championship Standings</button>
+                <button style={{background:"green"}} onClick={addNextEventWidget}>Add Next Event Widget</button>
+                <button style={{background:"red"}} onClick={addTeamAnalysisWidget}>Add Team Analysis</button>
+                <button style={{background:"red"}} onClick={addTeamAchievementsWidget}>Add Team Achievements</button>
+                <button style={{background:"red"}} onClick={addTeamComparisonWidget}>Add Team Comparison</button>
+                <button style={{background:"red"}} onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>
+                <button style={{background:"red"}} onClick={addSessionClassificationWidget}>Add Session Classification</button>
+                {/*<button style={{background:"red"}} onClick={addSeasonStandingsLeaderboardWidget}>Add Season Standings</button>*/}
+                <button style={{background:"red"}} onClick={addBMWAwardWidget}>Add BMW Award</button>
+                <button style={{background:"green"}} onClick={() => addRiderSeasonHistoryWidget("rider1")}>Add Rider Season History</button>
+                <button style={{background:"red"}} onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>
+                <button style={{background:"red"}} onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>
+                <button style={{background:"orange"}} onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>
+                <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Top Speed Widget</button>
+                <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Riders Comparison</button>
             </div>
-            <button onClick={addWidget}>Add Widget</button>
-            <button onClick={addTopSpeedWidget}>Add Top Speed Widget</button>
-            <button onClick={addSquareWidget}>Add Square Widget</button>
-            <button onClick={addCustomWidget}>Add Custom Widget</button>
+            {/*<button onClick={addWidget}>Add Widget</button>*/}
+            {/*<button onClick={addSquareWidget}>Add Square Widget</button>*/}
+            {/*<button onClick={addCustomWidget}>Add Custom Widget</button>*/}
             <button onClick={clearWidgets}>Clear Widgets</button>
             <GridLayout
                 className="layout"
@@ -505,6 +512,7 @@ const CustomDashboard = () => {
                          width: '32px',
                          height: '32px',
                          padding: '5px',
+                         zIndex: 1,
                          cursor: 'pointer',
                      }}
                  >

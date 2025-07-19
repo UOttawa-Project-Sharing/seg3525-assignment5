@@ -16,8 +16,8 @@ function getSpeedBySeason(riderId) {
   }));
 }
 
-const SpeedBySeasonWidget = ({ riderUuid }) => {
-  const data = getSpeedBySeason(riderUuid);
+const SpeedBySeasonWidget = ({ riderLegacyId }) => {
+  const data = getSpeedBySeason(riderLegacyId);
   return (
     <div className="widget speed-by-season-widget">
       <h3>Speed by Season</h3>

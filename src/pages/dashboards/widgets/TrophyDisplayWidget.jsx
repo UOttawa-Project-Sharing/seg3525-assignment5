@@ -15,8 +15,8 @@ function getTrophies(riderId) {
   }));
 }
 
-const TrophyDisplayWidget = ({ riderUuid }) => {
-  const data = getTrophies(riderUuid);
+const TrophyDisplayWidget = ({ riderLegacyId }) => {
+  const data = getTrophies(riderLegacyId);
   return (
     <div className="widget trophy-display-widget">
       <h3>Trophies</h3>

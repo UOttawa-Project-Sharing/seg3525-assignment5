@@ -1,0 +1,1887 @@
+[
+  {
+    "seasonYear": 2025,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2024,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2023,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2022,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2021,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2020,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2019,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      },
+      {
+        "id": "cf196668-f900-4116-af79-810b91828a37",
+        "name": "MotoE",
+        "legacy_id": 19
+      }
+    ]
+  },
+  {
+    "seasonYear": 2018,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2017,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2016,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2015,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2014,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2013,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2012,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "1ab203aa-e292-4842-8bed-971911357af1",
+        "name": "Moto3",
+        "legacy_id": 1
+      }
+    ]
+  },
+  {
+    "seasonYear": 2011,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2010,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "ea854a67-73a4-4a28-ac77-d67b3b2a530a",
+        "name": "Moto2",
+        "legacy_id": 2
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2009,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2008,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2007,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2006,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2005,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2004,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2003,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2002,
+    "data": [
+      {
+        "id": "737ab122-76e1-4081-bedb-334caaa18c70",
+        "name": "MotoGP",
+        "legacy_id": 3
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2001,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 2000,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1999,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1998,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1997,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1996,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1995,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1994,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1993,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1992,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1991,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1990,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1989,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1988,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1987,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1986,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1985,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1984,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "82fc5f34-6977-4401-9be2-b8082347ea3b",
+        "name": "80cc",
+        "legacy_id": 7
+      }
+    ]
+  },
+  {
+    "seasonYear": 1983,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1982,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1981,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1980,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1979,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1978,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1977,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1976,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1975,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1974,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1973,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1972,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1971,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1970,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1969,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1968,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1967,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1966,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1965,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1964,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1963,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1962,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      },
+      {
+        "id": "03544c0c-1764-4156-9106-3969ee7b56b2",
+        "name": "50cc",
+        "legacy_id": 8
+      }
+    ]
+  },
+  {
+    "seasonYear": 1961,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1960,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1959,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1958,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1957,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1956,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1955,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1954,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1953,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1952,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1951,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1950,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  },
+  {
+    "seasonYear": 1949,
+    "data": [
+      {
+        "id": "5a2a0bae-2060-475e-867d-3b6a34dbe370",
+        "name": "500cc",
+        "legacy_id": -1
+      },
+      {
+        "id": "4efdd330-2aff-4c2a-b09d-a8e69bad2eac",
+        "name": "350cc",
+        "legacy_id": 9
+      },
+      {
+        "id": "f4c00279-2ae2-42fa-8bce-01c5eaedf392",
+        "name": "250cc",
+        "legacy_id": 5
+      },
+      {
+        "id": "578be24b-3cd6-498f-9ed8-f0817be88467",
+        "name": "125cc",
+        "legacy_id": 10
+      }
+    ]
+  }
+]

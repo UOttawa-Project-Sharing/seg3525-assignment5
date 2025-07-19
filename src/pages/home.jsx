@@ -9,6 +9,7 @@ import ducati from '../assets/ducati_bike.png';
 import RiderStatCard from "../components/riderCards";
 import {getMotoGPTop3Riders} from "../data/getterAPI.js";
 import {useEffect, useState} from "react";
+import {getCurrentMotoGPTop3Riders} from "../data/jsonAPI.js";
 
 
 function HomePage() {
@@ -18,9 +19,11 @@ function HomePage() {
 
   useEffect(() => {
     // Replace with your actual API endpoint
-    getMotoGPTop3Riders()
+      console.log("b");
+      getCurrentMotoGPTop3Riders()
         .then((result) => {
           setData(result);
+            // console.log("c");
           console.log(result);
           setLoading(false);
         })
@@ -53,17 +56,18 @@ function HomePage() {
         <h2 className="text-center mb-4">Current Best Riders</h2>
         <Row className="w-100 justify-content-center">
             {loading ? <>loading...</> : (error != null) ? <><p>{error}</p></> : data.map(riderObj => (
-            <Col xs="auto" key={riderObj.rider.uuid}>
+            <Col xs="auto" key={riderObj.position}>
               <RiderStatCard
                 number={riderObj.rider.number}
                 name={riderObj.rider.full_name}
-                constructor={riderObj.team.name}
+                constructor={riderObj.team}
                 points={riderObj.points}
                 podiums={riderObj.podiums}
-                riderImage={riderObj.riderInfo.career[0].pictures.profile.main}
-                bikeImage={riderObj.riderInfo.career[0].team.picture}
-                flagImage={riderObj.riderInfo.country.flag}
+                riderImage={riderObj.rider.picture}
+                bikeImage={riderObj.rider.bikePicture}
+                flagImage={riderObj.rider.flag}
                 position={riderObj.position}
+                wins={riderObj.wins}
               />
             </Col>
           ))}
