@@ -137,27 +137,7 @@ export function EventOverviewWidget({ eventId }) {
                                 </Col>
 
 
-                                {event.circuit && event.circuit.circuit_descriptions && (
-                                    // <Row>
-                                    <Col xs={12} md={6}>
-                                        <Card className="border-0">
-                                            <Card.Body>
-                                                <div className="fw-bold mb-2">Circuit Description</div>
-                                                {event.circuit.circuit_descriptions
-                                                    .filter(desc => desc.language === language)
-                                                    .map(desc => (
-                                                        <div key={desc.id} dangerouslySetInnerHTML={{ __html: desc.description }} />
-                                                    ))}
-                                                {/* Fallback: show first description if "en" not available */}
-                                                {event.circuit.circuit_descriptions.filter(desc => desc.language === language).length === 0 &&
-                                                    event.circuit.circuit_descriptions.length > 0 && (
-                                                        <div key={event.circuit.circuit_descriptions[0].id} dangerouslySetInnerHTML={{ __html: event.circuit.circuit_descriptions[0].description }} />
-                                                    )}
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                    // </Row>
-                                )}
+
                                 <Col xs={12} md={6}>
                                     {event.circuit?.track?.assets?.info?.path ? (
                                         <Card className="h-100 border-0">

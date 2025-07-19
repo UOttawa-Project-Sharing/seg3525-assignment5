@@ -16,7 +16,6 @@ import TrophyDisplayWidget from "./widgets/TrophyDisplayWidget.jsx";
 import ChampionshipStandingsWidget from "./widgets/ChampionshipStandingsWidget.jsx";
 import { useSearchParams } from 'react-router';
 import mockdata from '../../data/mockdata.json';
-import {getRidersUuids} from "../../data/getterAPI.js";
 import NextEventWidget from "./widgets/NextEventWidget.jsx";
 import { TeamAnalysisWidget, TeamAchievementsWidget, TeamComparisonWidget, TeamPerformanceCardsWidget } from "./widgets/TeamWidgets.jsx";
 import { SessionClassificationWidget } from "./widgets/SessionClassificationWidget.jsx";
@@ -26,7 +25,9 @@ import { RiderSeasonHistoryWidget } from "./widgets/RiderSeasonHistoryWidget.jsx
 import { CircuitComparisonWidget } from "./widgets/CircuitComparisonWidget.jsx";
 import { SessionTypeWeatherWidget } from "./widgets/SessionTypeWeatherWidget.jsx";
 import { EventOverviewWidget } from "./widgets/EventOverviewWidget.jsx";
-import {getRidersIds} from "../../data/jsonAPI.js";
+import CircuitInfoWidget from "./widgets/CircuitInfoWidget.jsx";
+import {getCategories, getFinishedEventByYear, getRidersIds} from "../../data/jsonAPI.js";
+import CircuitDescriptionWidget from "./widgets/CircuitDescriptionWidget.jsx";
 
 const CustomDashboard = () => {
     const counter = useSelector((state) => state.counter.value);
@@ -35,11 +36,26 @@ const CustomDashboard = () => {
     const [gridWidth, setGridWidth] = useState(window.innerWidth);
     const [searchParams, setSearchParams] = useSearchParams();
     const [selectedRider, setSelectedRider] = useState(searchParams.get('rider') || '');
+    const [selectedYear, setSelectedYear] = useState(searchParams.get('year') || '2025');
+    const [selectedTeam, setSelectedTeam] = useState(searchParams.get('team') || '');
+    const [selectedEvent, setSelectedEvent] = useState(searchParams.get('event') || '');
+    const [selectedCircuit, setSelectedCircuit] = useState(searchParams.get('circuit') || '');
+    const [selectedSession, setSelectedSession] = useState(searchParams.get('session') || '');
+    const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
     const [riders, setRiders] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [events, setEvents] = useState(mockdata.events);
 
     const setNewLayout = (newLayout) => {
         dispatch(setDashLayout(newLayout));
     }
+
+    useEffect(() => {
+        getRidersIds().then(setRiders);
+        getCategories().then(setCategories).finally(e => {
+            console.log(e);
+        });
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -69,8 +85,39 @@ const CustomDashboard = () => {
     }, [selectedRider]);
 
     useEffect(() => {
-        getRidersIds().then(setRiders);
-    }, []);
+        if (selectedYear) {
+            searchParams.set('year', selectedYear);
+            setSearchParams(searchParams, { replace: true });
+        } else {
+            searchParams.delete('year');
+            setSearchParams(searchParams, { replace: true });
+        }
+        const fetch = async () => {
+            const evs = await getFinishedEventByYear(Number(selectedYear));
+            setEvents(evs);
+            console.log("a");
+            if (evs && evs.length > 0) {
+                console.log("b");
+                setSelectedEvent(evs[0].id);
+            } else {
+                console.log("c");
+                setSelectedEvent(null);
+            }
+        };
+        fetch();
+        getFinishedEventByYear(selectedYear).then(setEvents);
+        setSelectedEvent(events[0]?.id || '');
+    }, [selectedYear]);
+
+    useEffect(() => {
+        if (selectedEvent) {
+            searchParams.set('event', selectedEvent);
+            setSearchParams(searchParams, { replace: true });
+        } else {
+            searchParams.delete('event');
+            setSearchParams(searchParams, { replace: true });
+        }
+    }, [selectedEvent]);
 
     const addWidget = () => {
         const newWidget = {
@@ -349,6 +396,26 @@ const CustomDashboard = () => {
         };
         setNewLayout([...layout, newWidget]);
     };
+    const addCircuitInfoWidget = (eventId) => {
+        const newWidget = {
+            i: `circuit-info-${eventId}-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 4,
+            h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    };
+    const addCircuitDescriptionWidget = (eventId) => {
+        const newWidget = {
+            i: `circuit-description-${eventId}-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 4,
+            h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    }
 
     const getComponent = (id) => {
         switch (id.split('-')[0]) {
@@ -396,6 +463,8 @@ const CustomDashboard = () => {
             case 'bmw':
                 return <BMWAwardWidget />;
             case 'circuit':
+                if (id.startsWith('circuit-info')) return <CircuitInfoWidget eventId={selectedEvent} />;
+                if (id.startsWith('circuit-description')) return <CircuitDescriptionWidget eventId={selectedEvent} />;
                 return <CircuitComparisonWidget />;
             case 'event':
                 return <EventOverviewWidget />;
@@ -421,6 +490,45 @@ const CustomDashboard = () => {
                         </option>
                     ))}
                 </select>
+                <label htmlFor="year-select" style={{ marginLeft: '20px' }}>Select Year:</label>
+                <select
+                    id="year-select"
+                    value={selectedYear}
+                    onChange={(e) => setSelectedYear(e.target.value)}
+                    >
+                    {categories.map((category) => (
+                        <option key={category.year} value={category.year}>
+                            {category.seasonYear}
+                        </option>
+                    ))}
+                </select>
+                <label htmlFor="category-select" style={{ marginLeft: '20px' }}>Select Category:</label>
+                <select
+                    id="category-select"
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                    <option value="">-- Select Category --</option>
+                    {categories.find(c => c.seasonYear === Number(selectedYear))?.categories.map((category) => (
+                        <option key={category.legacy_id} value={category.legacy_id}>
+                            {category.bc_name}
+                        </option>
+                    ))}
+                </select>
+                <label htmlFor="event-select" style={{ marginLeft: '20px' }}>Select Event:</label>
+                <select
+                    id="event-select"
+                    value={selectedEvent}
+                    onChange={(e) => setSelectedEvent(e.target.value)}
+                >
+                    <option value="">-- Select Event --</option>
+                    {events.map((event) => (
+                        <option key={event.id} value={event.id}>
+                            {event.name}
+                        </option>
+                    ))}
+                </select>
+
             </div>
             {/* Add widget buttons UI (insert in render return) */}
             <div className="widget-buttons">
@@ -439,13 +547,15 @@ const CustomDashboard = () => {
                 <button style={{background:"red"}} onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>
                 <button style={{background:"red"}} onClick={addSessionClassificationWidget}>Add Session Classification</button>
                 {/*<button style={{background:"red"}} onClick={addSeasonStandingsLeaderboardWidget}>Add Season Standings</button>*/}
-                <button style={{background:"red"}} onClick={addBMWAwardWidget}>Add BMW Award</button>
+                {/*<button style={{background:"red"}} onClick={addBMWAwardWidget}>Add BMW Award</button>*/}
                 <button style={{background:"green"}} onClick={() => addRiderSeasonHistoryWidget("rider1")}>Add Rider Season History</button>
                 <button style={{background:"red"}} onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>
                 <button style={{background:"red"}} onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>
                 <button style={{background:"orange"}} onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>
                 <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Top Speed Widget</button>
                 <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Riders Comparison</button>
+                <button style={{background:"green"}} onClick={() => addCircuitInfoWidget(selectedEvent)}>Add Circuit Info Widget</button>
+                <button style={{background:"green"}} onClick={() => addCircuitDescriptionWidget(selectedEvent)}>Add Circuit Description Widget</button>
             </div>
             {/*<button onClick={addWidget}>Add Widget</button>*/}
             {/*<button onClick={addSquareWidget}>Add Square Widget</button>*/}

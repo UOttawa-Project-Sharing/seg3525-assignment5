@@ -5,6 +5,7 @@ import standings from './standings.json';
 import teams from './teams.json';
 import broadcastSeasonCategories from './broadcastSeasonCategories.json';
 import broadcastEvents from './broadcastEvents.json';
+import broadcastEvent from './broadcastEvent.json';
 import seasonCategories from './seasonCategories.json';
 import seasons from './seasons.json';
 // import classifications from './classifications.json';
@@ -12,6 +13,7 @@ import events from './events.json';
 // import sessions from './sessions.json';
 // import sessionDetails from './sessionDetails.json';
 import riderStatsBySeason from './riderStatsBySeason.json';
+import gridPositions from './gridPositions.json';
 
 export const motoGPCategoryId = "e8c110ad-64aa-4e8e-8a86-f2f152f6a942";
 export const brCategoryId = "737ab122-76e1-4081-bedb-334caaa18c70";
@@ -320,4 +322,23 @@ export const getNextEvent = async (n) => {
 
 export const getFinishedEventByYear = async (year) => {
     return broadcastEvents.find(e => e.seasonYear === year).data.filter(e => e.status === "FINISHED" && e.type === "SPORT");
+}
+
+export const getTrackInfoByEventId = async (eventId) => {
+    const eventsData = broadcastEvent.find(e => e.eventId === eventId);
+    // console.log(eventsData);
+    if (!eventsData || !eventsData?.data || eventsData?.data.length === 0) {
+        console.error(`No track information found for event ID ${eventId}`);
+        return null;
+    }
+    return eventsData.data;
+}
+
+export const getGridPositionByEventCat = async (eventId,catId) => {
+    const grid = gridPositions.find(g => g.eventId === eventId && g.categoryId === catId);
+    if (!grid || !grid.data || grid.data.length === 0) {
+        console.error(`No grid positions found for event ID ${eventId} and category ID ${catId}`);
+        return [];
+    }
+    return grid.data;
 }
