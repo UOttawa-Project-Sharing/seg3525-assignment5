@@ -28,6 +28,8 @@ import { EventOverviewWidget } from "./widgets/EventOverviewWidget.jsx";
 import CircuitInfoWidget from "./widgets/CircuitInfoWidget.jsx";
 import {getCategories, getFinishedEventByYear, getRidersIds} from "../../data/jsonAPI.js";
 import CircuitDescriptionWidget from "./widgets/CircuitDescriptionWidget.jsx";
+import GridStandingsWidget from "./widgets/GridStandings.jsx";
+import DriverComparisonWidget from './widgets/DriverComparisonWidget';
 
 const CustomDashboard = () => {
     const counter = useSelector((state) => state.counter.value);
@@ -215,10 +217,12 @@ const CustomDashboard = () => {
     const addRiderStatsWidget = () => {
         const newWidget = {
             i: `rider-stats-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 3) % Math.floor(gridWidth / 100),
             y: Infinity,
-            w: 3,
-            h: 3,
+            w: 5,
+            h: 4,
+            minW: 4,
+            minH: 4,
         };
         setNewLayout([...layout, newWidget]);
     };
@@ -245,30 +249,36 @@ const CustomDashboard = () => {
     const addRiderMilestonesWidget = () => {
         const newWidget = {
             i: `rider-milestones-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 2) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 3,
-            h: 2,
+            w: 14,
+            h: 5,
+            minW: 8,
+            minH: 5,
         };
         setNewLayout([...layout, newWidget]);
     };
     const addRiderProfileWidget = () => {
         const newWidget = {
             i: `rider-profile-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 2) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 3,
-            h: 2,
+            w: 7,
+            h: 5,
+            minW: 7,
+            minH: 5,
         };
         setNewLayout([...layout, newWidget]);
     };
     const addCareerTimelineWidget = () => {
         const newWidget = {
             i: `career-timeline-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 2) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 4,
-            h: 2,
+            w: 9,
+            h: 7,
+            minW: 9,
+            minH: 7,
         };
         setNewLayout([...layout, newWidget]);
     };
@@ -285,20 +295,25 @@ const CustomDashboard = () => {
     const addChampionshipStandingsWidget = () => {
         const newWidget = {
             i: `championship-standings-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 2) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 4,
-            h: 3,
+            w: 18,
+            h: 10,
+            minW: 17,
+            minH: 5,
         };
         setNewLayout([...layout, newWidget]);
     };
     const addNextEventWidget = () => {
         const newWidget = {
             i: `next-event-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 2) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 3,
-            h: 2,
+            w: 11,
+            h: 5,
+            minW: 9,
+            minH: 4,
+            maxH: 6,
         };
         setNewLayout([...layout, newWidget]);
     };
@@ -381,8 +396,10 @@ const CustomDashboard = () => {
             i: `rider-season-history-${riderName}-${layout.length + 1}`,
             x: (layout.length * 2) % Math.floor(gridWidth / 100),
             y: Infinity,
-            w: 4,
-            h: 2,
+            w: 18,
+            h: 8,
+            minW: 10,
+            minH: 8,
         };
         setNewLayout([...layout, newWidget]);
     };
@@ -423,8 +440,10 @@ const CustomDashboard = () => {
             i: `circuit-info-${eventId}-${layout.length + 1}`,
             x: (layout.length * 2) % Math.floor(gridWidth / 100),
             y: Infinity,
-            w: 4,
-            h: 3,
+            w: 9,
+            h: 9,
+            minW: 7,
+            minH: 5,
         };
         setNewLayout([...layout, newWidget]);
     };
@@ -433,8 +452,36 @@ const CustomDashboard = () => {
             i: `circuit-description-${eventId}-${layout.length + 1}`,
             x: (layout.length * 2) % Math.floor(gridWidth / 100),
             y: Infinity,
+            w: 10,
+            h: 8,
+            minW: 4,
+            minH: 2,
+        };
+        setNewLayout([...layout, newWidget]);
+    }
+    const addGridStandingsWidget = (eventId) => {
+        const newWidget = {
+            i: `grid-standings-${eventId}-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
             w: 4,
             h: 3,
+        };
+        setNewLayout([...layout, newWidget]);
+    }
+
+    const addDriverComparisonWidget = () => {
+        console.log("Adding Driver Comparison Widget");
+        const newWidget = {
+            i: `driver-comparison-${layout.length + 1}`,
+            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            y: Infinity,
+            w: 9,
+            h: 9,
+            minW: 9,
+            minH: 9,
+            maxW: 12,
+            maxH: 12,
         };
         setNewLayout([...layout, newWidget]);
     }
@@ -490,13 +537,18 @@ const CustomDashboard = () => {
                 return <CircuitComparisonWidget />;
             case 'event':
                 return <EventOverviewWidget />;
+            case 'grid':
+                if (id.startsWith('grid-standings')) return <GridStandingsWidget eventId={selectedEvent} categoryId={selectedCategory} />;
+                break;
+            case 'driver':
+                return <DriverComparisonWidget riderLegacyId={selectedRider} />;
             default:
                 return <EmptyWidget />;
         }
     }
 
     return (
-        <div>
+        <div style={{ minHeight: '80vh' }}>
             {/*add rider selection */}
             <div style={{ marginBottom: '20px' }}>
                 <label htmlFor="rider-select">Select Rider:</label>
@@ -556,28 +608,30 @@ const CustomDashboard = () => {
             <div className="widget-buttons">
                 <button style={{background:"green"}} onClick={addRiderStatsWidget}>Add Rider Stats</button>
                 {/*<button style={{background:"red"}} onClick={addSpeedBySeasonWidget}>Add Speed by Season</button>*/}
-                <button style={{background:"red"}} onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>
+                {/*<button style={{background:"blue"}} onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>*/}
                 <button style={{background:"green"}} onClick={addRiderMilestonesWidget}>Add Rider Milestones</button>
                 <button style={{background:"green"}} onClick={addRiderProfileWidget}>Add Rider Profile</button>
                 <button style={{background:"green"}} onClick={addCareerTimelineWidget}>Add Career Timeline</button>
                 {/*<button style={{background:"red"}} onClick={addTrophyDisplayWidget}>Add Trophy Display</button>*/}
                 <button style={{background:"green"}} onClick={addChampionshipStandingsWidget}>Add Championship Standings</button>
                 <button style={{background:"green"}} onClick={addNextEventWidget}>Add Next Event Widget</button>
-                <button style={{background:"red"}} onClick={addTeamAnalysisWidget}>Add Team Analysis</button>
-                <button style={{background:"red"}} onClick={addTeamAchievementsWidget}>Add Team Achievements</button>
-                <button style={{background:"red"}} onClick={addTeamComparisonWidget}>Add Team Comparison</button>
-                <button style={{background:"red"}} onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>
-                <button style={{background:"red"}} onClick={addSessionClassificationWidget}>Add Session Classification</button>
+                {/*<button style={{background:"blue"}} onClick={addTeamAnalysisWidget}>Add Team Analysis</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addTeamAchievementsWidget}>Add Team Achievements</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addTeamComparisonWidget}>Add Team Comparison</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addSessionClassificationWidget}>Add Session Classification</button>*/}
                 {/*<button style={{background:"red"}} onClick={addSeasonStandingsLeaderboardWidget}>Add Season Standings</button>*/}
                 {/*<button style={{background:"red"}} onClick={addBMWAwardWidget}>Add BMW Award</button>*/}
                 <button style={{background:"green"}} onClick={() => addRiderSeasonHistoryWidget("rider1")}>Add Rider Season History</button>
-                <button style={{background:"red"}} onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>
-                <button style={{background:"red"}} onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>
-                <button style={{background:"orange"}} onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>
-                <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Top Speed Widget</button>
-                <button style={{background:"red"}} onClick={addTopSpeedWidget}>Add Riders Comparison</button>
+                {/*<button style={{background:"blue"}} onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>*/}
+                {/*<button style={{background:"blue"}} onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>*/}
+                {/*<button style={{background:"orange"}} onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addTopSpeedWidget}>Add Top Speed Widget</button>*/}
+                {/*<button style={{background:"blue"}} onClick={addTopSpeedWidget}>Add Riders Comparison</button>*/}
                 <button style={{background:"green"}} onClick={() => addCircuitInfoWidget(selectedEvent)}>Add Circuit Info Widget</button>
                 <button style={{background:"green"}} onClick={() => addCircuitDescriptionWidget(selectedEvent)}>Add Circuit Description Widget</button>
+                {/*<button style={{background:"yellow"}} onClick={() => addGridStandingsWidget(selectedEvent)}>Add Grid Standings Widget</button>*/}
+                <button style={{background:"green"}} onClick={() => addDriverComparisonWidget()}>Add Driver Comparison Widget</button>
             </div>
             {/*<button onClick={addWidget}>Add Widget</button>*/}
             {/*<button onClick={addSquareWidget}>Add Square Widget</button>*/}
@@ -586,8 +640,8 @@ const CustomDashboard = () => {
             <GridLayout
                 className="layout"
                 layout={layout}
-                cols={gridWidth / 100}
-                rowHeight={100} // Set row height to match column width
+                cols={gridWidth / 50}
+                rowHeight={50} // Set row height to match column width
                 width={gridWidth}
                 onLayoutChange={(newLayout) => enforceSquareRatio(newLayout)}
                 draggableHandle=".drag-handle" // Restrict dragging to elements with the drag-handle class
@@ -624,12 +678,14 @@ const CustomDashboard = () => {
                         top: '5px',
                          left: '10px',
                          cursor: 'move',
+                            zIndex: 100,
                      }}
                  >
                      <i className="bi bi-grip-horizontal" style={{ color: '#fff', fontSize: '20px' }}></i>
                  </div>
-                            <div style={{top: '0px'}}>
-                     <span>{item.i}</span>
+                            <div style={{position: "absolute",top: '0px', color: 'red', fontWeight: 'bold', fontSize: '25px', left: '10px', zIndex: 10000, background: '#fff', pointerEvents: 'none'}}>
+                     {/*<span>{item.i}</span>*/}
+                                <span>h: {item.h} w: {item.w}</span>
                             </div>
                  <button
                      onClick={() => removeWidget(item.i)}
@@ -644,7 +700,7 @@ const CustomDashboard = () => {
                          width: '32px',
                          height: '32px',
                          padding: '5px',
-                         zIndex: 1,
+                         zIndex: 100,
                          cursor: 'pointer',
                      }}
                  >
@@ -660,10 +716,10 @@ const CustomDashboard = () => {
         </div>
                 ))}
             </GridLayout>
-            <div style={{ marginTop: '20px' }}>
-                <button onClick={() => dispatch(increment())}>Increment Counter</button>
-                <p>Counter Value: {counter}</p>
-            </div>
+            {/*<div style={{ marginTop: '20px' }}>*/}
+            {/*    <button onClick={() => dispatch(increment())}>Increment Counter</button>*/}
+            {/*    <p>Counter Value: {counter}</p>*/}
+            {/*</div>*/}
         </div>
     );
 };

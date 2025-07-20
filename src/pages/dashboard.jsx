@@ -12,16 +12,16 @@ const Dashboard = () => {
     // Render content based on dashboardType
     const renderDashboardContent = () => {
         switch (dashboardType) {
-            case 'custom':
-                return <CustomDashboard />;
-            case 'pilots':
-                return <PilotsDashboard />;
-            case 'race':
-                return <RaceDashboard />;
-            case 'seasons':
-                return <SeasonsDashboard />;
+            // case 'custom':
+            //     return <CustomDashboard />;
+            // case 'pilots':
+            //     return <PilotsDashboard />;
+            // case 'race':
+            //     return <RaceDashboard />;
+            // case 'seasons':
+            //     return <SeasonsDashboard />;
             default:
-                return <p>Please select a valid dashboard type.</p>;
+                return <CustomDashboard />;
         }
     };
 
@@ -30,7 +30,7 @@ const Dashboard = () => {
             <Container fluid className={"m-0 p-0 overflow-hidden"}>
                 <Row>
                     <Col md={12}>
-                        <h1>Dashboard for {dashboardType}</h1>
+                        <h1>Dashboard{/* for {dashboardType}*/}</h1>
                         <div className="w-100">
                             {renderDashboardContent()}
                         </div>

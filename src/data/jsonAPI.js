@@ -14,6 +14,7 @@ import events from './events.json';
 // import sessionDetails from './sessionDetails.json';
 import riderStatsBySeason from './riderStatsBySeason.json';
 import gridPositions from './gridPositions.json';
+import eventCategories from './eventCategories.json';
 
 export const motoGPCategoryId = "e8c110ad-64aa-4e8e-8a86-f2f152f6a942";
 export const brCategoryId = "737ab122-76e1-4081-bedb-334caaa18c70";
@@ -341,4 +342,21 @@ export const getGridPositionByEventCat = async (eventId,catId) => {
         return [];
     }
     return grid.data;
+}
+
+export const getCategoryIdByBCId = async (bcId, seasonId) => {
+    return getCategories().find(e => e.seasonUuid === seasonId).categories.find(category => category.id === seasonId).bc_id;
+}
+
+export const getCategoryIdByLegacyId = async (legacyId, eventId) => {
+    const a = broadcastEvent.find(ec => ec.eventId === eventId);
+    // console.log(a);
+    // return a.data.find( c => c.legacy_id === parseInt(legacyId)).id || null;
+    const cat = await getCategories();
+    console.log(cat);
+    console.log(a);
+    console.log("aaa");
+    const aaa = cat.find(e => e.seasonUuid === a.data.season.id);
+    console.log(aaa, a.data.season.id, eventId);
+    return aaa.categories.find(category => category.legacy_id === legacyId).id;
 }

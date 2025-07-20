@@ -35,11 +35,11 @@ const CircuitInfoWidget = ({ eventId }) => {
         {event === null ? (
             <div>Loading circuit information...</div>
         ) : (
-        <div className="overflow-auto h-100 w-100 custom-scrollbar">
+        <div className="overflow-y-auto overflow-x-hidden h-100 w-100 custom-scrollbar">
             <h3>Circuit Information</h3>
             <p><strong>Name:</strong> {event.circuit.name}</p>
             <Row>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={12}>
                 {event.circuit?.track?.assets?.info?.path ? (
                     <Card className="border-0 bg-transparent">
                         <Card.Body>
@@ -47,7 +47,7 @@ const CircuitInfoWidget = ({ eventId }) => {
                             <img
                                 src={event.circuit.track.assets.info.path}
                                 alt="Circuit SVG"
-                                style={{ width: '100%', height: 'auto', borderRadius: '0.5rem'/*, background: '#f8f9fa', border: '1px solid #eee'*/ }}
+                                style={{ width: '50%', height: '50%', borderRadius: '0.5rem'/*, background: '#f8f9fa', border: '1px solid #eee'*/ }}
                             />
                         </Card.Body>
                     </Card>
@@ -59,7 +59,7 @@ const CircuitInfoWidget = ({ eventId }) => {
                     </Card>
                 )}
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={12}>
 
                 {/* Track Details */}
                 <div className="mt-3">
