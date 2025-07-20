@@ -32,7 +32,7 @@ export function RiderSeasonHistoryWidget({ riderName }) {
     const language = useSelector((state) => state.language.value);
     const CHART_LABELS = {
         points: translations[language].widgets.seasonHistory.points,
-        poles: translations[language].widgets.seasonHistory.statistics,
+        poles: translations[language].widgets.seasonHistory.poles,
         podiums: translations[language].widgets.seasonHistory.podiums,
         first_position: translations[language].widgets.seasonHistory.wins,
         starts: translations[language].widgets.seasonHistory.raceStart,
