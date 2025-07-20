@@ -212,6 +212,8 @@ const translations = {
           selectYear: "Select Year",
           selectCategory: "Select Category",
           selectEvent: "Select Event",
+          importLayout: "Import Layout",
+            exportLayout: "Export Layout",
       }
   },
   fr: {
@@ -424,6 +426,8 @@ const translations = {
             selectYear: "Sélectionner l'Année",
             selectCategory: "Sélectionner la Catégorie",
             selectEvent: "Sélectionner l'Événement",
+            importLayout: "Importer la Mise en Page",
+            exportLayout: "Exporter la Mise en Page",
         }
   },
 };

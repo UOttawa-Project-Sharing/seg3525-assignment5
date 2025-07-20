@@ -15,7 +15,7 @@ import CareerTimelineWidget from "./widgets/CareerTimelineWidget.jsx";
 import TrophyDisplayWidget from "./widgets/TrophyDisplayWidget.jsx";
 import ChampionshipStandingsWidget from "./widgets/ChampionshipStandingsWidget.jsx";
 import { useSearchParams } from 'react-router';
-import mockdata from '../../data/mockdata.json';
+// import mockdata from '../../data/mockdata.json';
 import NextEventWidget from "./widgets/NextEventWidget.jsx";
 import { TeamAnalysisWidget, TeamAchievementsWidget, TeamComparisonWidget, TeamPerformanceCardsWidget } from "./widgets/TeamWidgets.jsx";
 import { SessionClassificationWidget } from "./widgets/SessionClassificationWidget.jsx";
@@ -49,7 +49,7 @@ const CustomDashboard = () => {
     const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
     const [riders, setRiders] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [events, setEvents] = useState(mockdata.events);
+    const [events, setEvents] = useState([]);
     const language = useSelector((state) => state.language.value);
 
     const setNewLayout = (newLayout) => {
@@ -548,6 +548,37 @@ const CustomDashboard = () => {
         }
     }
 
+    const exportLayout = () => {
+        const layoutData = JSON.stringify(layout);
+        const blob = new Blob([layoutData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'dashboard-layout.json';
+        link.click();
+        URL.revokeObjectURL(url);
+    };
+
+    const importLayout = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const importedLayout = JSON.parse(e.target.result);
+                    if (Array.isArray(importedLayout) && importedLayout.every(item => item.i && item.x >= 0 && item.y >= 0 && item.w > 0 && item.h > 0)) {
+                        setNewLayout(importedLayout);
+                    } else {
+                        alert('Invalid layout format. Please upload a valid JSON file.');
+                    }
+                } catch (error) {
+                    alert('Error parsing the file. Please ensure it is a valid JSON file.');
+                }
+            };
+            reader.readAsText(file);
+        }
+    };
+
     return (
         <Container fluid style={{ minHeight: '80vh', padding: '32px 0' }}>
             {/* Selection Bar */}
@@ -752,6 +783,39 @@ const CustomDashboard = () => {
                         </Col>
                         <Col xs="auto">
                             <Button variant="danger" onClick={clearWidgets}>{translations[language].dashboard.clearWidget}</Button>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+            {/* Export/Import Buttons */}
+            <Card className="mb-4 mt-0 m-5 shadow-sm" bg="dark" text="light" style={{ borderRadius: '18px', position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}>
+                <Card.Body>
+                    <Row className="g-2">
+                        <Col>
+                            <Button variant="secondary" onClick={exportLayout}>{translations[language].dashboard.exportLayout}</Button>
+                            <input
+                                type="file"
+                                accept="application/json"
+
+                                onChange={(event) => {
+                                    // const fileName = event.target.files[0]?.name || 'No file selected';
+                                    // alert(`Selected file: ${fileName}`);
+                                    importLayout(event);
+                                }}
+                                style={{
+                                    display: 'none',
+                                }}
+                                id="import-layout"
+                            />
+                            <Button
+                                variant="light"
+                                onClick={() => document.getElementById('import-layout').click()}
+                                style={{
+                                    marginLeft: '10px',
+                                }}
+                            >
+                                {translations[language].dashboard.importLayout}
+                            </Button>
                         </Col>
                     </Row>
                 </Card.Body>
