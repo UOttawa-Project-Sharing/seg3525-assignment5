@@ -683,10 +683,10 @@ const CustomDashboard = () => {
                  >
                      <i className="bi bi-grip-horizontal" style={{ color: '#fff', fontSize: '20px' }}></i>
                  </div>
-                            <div style={{position: "absolute",top: '0px', color: 'red', fontWeight: 'bold', fontSize: '25px', left: '10px', zIndex: 10000, background: '#fff', pointerEvents: 'none'}}>
+                            {/*<div style={{position: "absolute",top: '0px', color: 'red', fontWeight: 'bold', fontSize: '25px', left: '10px', zIndex: 10000, background: '#fff', pointerEvents: 'none'}}>*/}
                      {/*<span>{item.i}</span>*/}
-                                <span>h: {item.h} w: {item.w}</span>
-                            </div>
+                     {/*           <span>h: {item.h} w: {item.w}</span>*/}
+                     {/*       </div>*/}
                  <button
                      onClick={() => removeWidget(item.i)}
                      style={{
