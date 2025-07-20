@@ -10,9 +10,12 @@ import RiderStatCard from "../components/riderCards";
 import {getMotoGPTop3Riders} from "../data/getterAPI.js";
 import {useEffect, useState} from "react";
 import {getCurrentMotoGPTop3Riders} from "../data/jsonAPI.js";
+import { useSelector } from 'react-redux';
+import translations from '../data/lang.jsx';
 
 
 function HomePage() {
+  const language = useSelector((state) => state.language.value);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -38,9 +41,9 @@ function HomePage() {
       {/* Section 1 */}
       <section style={{ marginTop: 20, minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
         <Row className="align-items-center w-100 justify-content-center">
-          <h2>Welcome to GP-Statz</h2>
-          <p>All the stats you need to be a pro moto gp fan.</p>
-          <p>Explore rider stats, team performance, and race history. Stay updated and become a MotoGP expert!</p>
+          <h2>{translations[language].home.title}</h2>
+          <p>{translations[language].home.description}</p>
+          <p>{translations[language].home.description2}</p>
         </Row>
         <Row className="align-items-center w-100 justify-content-center">
           <Col xs={6} className="d-flex justify-content-center">
@@ -53,7 +56,7 @@ function HomePage() {
       </section>
       {/* Section 2 */}
       <section className={"bg-light"} style={{ minHeight: '40vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-        <h2 className="text-center mb-4">Current Best Riders</h2>
+        <h2 className="text-center mb-4">{translations[language].home.top}</h2>
         <Row className="w-100 justify-content-center">
             {loading ? <>loading...</> : (error != null) ? <><p>{error}</p></> : data.map(riderObj => (
             <Col xs="auto" key={riderObj.position}>

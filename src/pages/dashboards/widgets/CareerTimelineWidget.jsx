@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Card, Badge, Row, Col, Container } from 'react-bootstrap';
 import {getCareerTimeline} from "../../../data/jsonAPI.js";
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang';
 
 // Helper for team badge color
 function TeamBadge({ team }) {
@@ -24,6 +26,8 @@ function TeamBadge({ team }) {
 const CareerTimelineWidget = ({ riderLegacyId }) => {
     const [data, setData] = useState(null);
     const [timeline, setTimeline] = useState([]);
+    const language = useSelector((state) => state.language.value);
+
     useEffect(() => {
         const fetchData = async () => {
             const careerData = await getCareerTimeline(riderLegacyId);
@@ -33,11 +37,12 @@ const CareerTimelineWidget = ({ riderLegacyId }) => {
         };
         fetchData();
     }, [riderLegacyId]);
+
     return (
         <Card className="mb-4 h-100 bg-transparent border-0 pb-5">
             {data !== null ? (
             <Card.Body className="h-100">
-                <Card.Title>Career Timeline</Card.Title>
+                <Card.Title>{translations[language].widgets.careerTimeline.title}</Card.Title>
                 <div style={{ height: "100%", overflowY: 'scroll', paddingRight: 8 }} className="custom-scrollbar">
                     <Container fluid>
                         <Row className="gx-0 gy-4 flex-column">
@@ -78,26 +83,35 @@ const CareerTimelineWidget = ({ riderLegacyId }) => {
                                                 )}
                                             </div>
                                             <div className="small mb-1">
-                                                <strong>Number:</strong> {item.number}
+                                                <strong>{translations[language].widgets.careerTimeline.number}:</strong> {item.number}
                                             </div>
                                             <div className="small mb-1">
-                                                <strong>Short Nickname:</strong> {item.short_nickname || <em>N/A</em>}
+                                                <strong>{translations[language].widgets.careerTimeline.shortNickname}:</strong> {item.short_nickname || <em>N/A</em>}
                                             </div>
                                             <div className="small mb-1">
-                                                <strong>Type:</strong> {item.type || <em>N/A</em>}
+                                                <strong>{translations[language].widgets.careerTimeline.type}:</strong> {item.type || <em>N/A</em>}
                                             </div>
                                             <div className="small mb-1">
-                                                <strong>Constructor:</strong> {item.team?.constructor?.name || <em>N/A</em>}
+                                                <strong>{translations[language].widgets.careerTimeline.constructor}:</strong> {item.team?.constructor?.name || <em>N/A</em>}
                                             </div>
                                             <div className="mt-2">
                                                 {item.current && (
                                                     <Badge pill bg="success" className="me-1 mb-1">Current</Badge>
                                                 )}
                                                 {item.in_grid && (
-                                                    <Badge pill bg="primary" className="me-1 mb-1">In Grid</Badge>
+                                                    <Badge pill bg="primary" className="me-1 mb-1">
+                                                        {translations[language].widgets.careerTimeline.inGrid}
+                                                    </Badge>
                                                 )}
                                                 {item.type === "Wildcard" && (
-                                                    <Badge pill bg="warning" text="dark" className="me-1 mb-1">Wildcard</Badge>
+                                                    <Badge pill bg="warning" text="light" className="me-1 mb-1">
+                                                        {translations[language].widgets.careerTimeline.wildcard}
+                                                    </Badge>
+                                                )}
+                                                {item.type === "Test" && (
+                                                    <Badge pill bg="warning" text="light" className="me-1 mb-1">
+                                                        {translations[language].widgets.careerTimeline.test}
+                                                    </Badge>
                                                 )}
                                             </div>
                                             {item.pictures?.bike?.main && (
@@ -127,8 +141,8 @@ const CareerTimelineWidget = ({ riderLegacyId }) => {
             </Card.Body>
                 ) : (
                 <Card.Body>
-                    <Card.Title>Career Timeline</Card.Title>
-                    <div>No career data available.</div>
+                    <Card.Title>{translations[language].widgets.careerTimeline.title}</Card.Title>
+                    <div>{translations[language].widgets.careerTimeline.noCareerData}</div>
                 </Card.Body>
                 )}
         </Card>

@@ -26,10 +26,13 @@ import { CircuitComparisonWidget } from "./widgets/CircuitComparisonWidget.jsx";
 import { SessionTypeWeatherWidget } from "./widgets/SessionTypeWeatherWidget.jsx";
 import { EventOverviewWidget } from "./widgets/EventOverviewWidget.jsx";
 import CircuitInfoWidget from "./widgets/CircuitInfoWidget.jsx";
-import {getCategories, getFinishedEventByYear, getRidersIds} from "../../data/jsonAPI.js";
+import { getCategories, getFinishedEventByYear, getRidersIds } from "../../data/jsonAPI.js";
 import CircuitDescriptionWidget from "./widgets/CircuitDescriptionWidget.jsx";
 import GridStandingsWidget from "./widgets/GridStandings.jsx";
 import DriverComparisonWidget from './widgets/DriverComparisonWidget';
+import { Container, Row, Col, Form, Button, ButtonGroup, Card } from 'react-bootstrap';
+// import { useSelector } from 'react-redux';
+import translations from '../../data/lang';
 
 const CustomDashboard = () => {
     const counter = useSelector((state) => state.counter.value);
@@ -47,6 +50,7 @@ const CustomDashboard = () => {
     const [riders, setRiders] = useState([]);
     const [categories, setCategories] = useState([]);
     const [events, setEvents] = useState(mockdata.events);
+    const language = useSelector((state) => state.language.value);
 
     const setNewLayout = (newLayout) => {
         dispatch(setDashLayout(newLayout));
@@ -97,12 +101,9 @@ const CustomDashboard = () => {
         const fetch = async () => {
             const evs = await getFinishedEventByYear(Number(selectedYear));
             setEvents(evs);
-            console.log("a");
             if (evs && evs.length > 0) {
-                console.log("b");
                 setSelectedEvent(evs[0].id);
             } else {
-                console.log("c");
                 setSelectedEvent(null);
             }
         };
@@ -146,7 +147,7 @@ const CustomDashboard = () => {
     const addWidget = () => {
         const newWidget = {
             i: `${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity, // places it at the bottom
             w: 2,
             h: 2,
@@ -157,7 +158,7 @@ const CustomDashboard = () => {
     const addSquareWidget = () => {
         const newWidget = {
             i: `square-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 2,
             h: 2,
@@ -217,10 +218,10 @@ const CustomDashboard = () => {
     const addRiderStatsWidget = () => {
         const newWidget = {
             i: `rider-stats-${layout.length + 1}`,
-            x: (layout.length * 3) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
-            w: 5,
-            h: 4,
+            w: 6,
+            h: 5,
             minW: 4,
             minH: 4,
         };
@@ -229,7 +230,7 @@ const CustomDashboard = () => {
     const addSpeedBySeasonWidget = () => {
         const newWidget = {
             i: `speed-by-season-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 3,
             h: 3,
@@ -239,7 +240,7 @@ const CustomDashboard = () => {
     const addSeasonEvolutionWidget = () => {
         const newWidget = {
             i: `season-evolution-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 3,
             h: 3,
@@ -249,7 +250,7 @@ const CustomDashboard = () => {
     const addRiderMilestonesWidget = () => {
         const newWidget = {
             i: `rider-milestones-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 50),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 14,
             h: 5,
@@ -261,7 +262,7 @@ const CustomDashboard = () => {
     const addRiderProfileWidget = () => {
         const newWidget = {
             i: `rider-profile-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 50),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 7,
             h: 5,
@@ -273,7 +274,7 @@ const CustomDashboard = () => {
     const addCareerTimelineWidget = () => {
         const newWidget = {
             i: `career-timeline-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 50),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 9,
             h: 7,
@@ -285,7 +286,7 @@ const CustomDashboard = () => {
     const addTrophyDisplayWidget = () => {
         const newWidget = {
             i: `trophy-display-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 3,
             h: 2,
@@ -295,7 +296,7 @@ const CustomDashboard = () => {
     const addChampionshipStandingsWidget = () => {
         const newWidget = {
             i: `championship-standings-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 50),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 18,
             h: 10,
@@ -307,7 +308,7 @@ const CustomDashboard = () => {
     const addNextEventWidget = () => {
         const newWidget = {
             i: `next-event-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 50),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 11,
             h: 5,
@@ -322,7 +323,7 @@ const CustomDashboard = () => {
     const addTeamAnalysisWidget = () => {
         const newWidget = {
             i: `team-analysis-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 3,
@@ -332,7 +333,7 @@ const CustomDashboard = () => {
     const addTeamAchievementsWidget = () => {
         const newWidget = {
             i: `team-achievements-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 3,
@@ -342,7 +343,7 @@ const CustomDashboard = () => {
     const addTeamComparisonWidget = () => {
         const newWidget = {
             i: `team-comparison-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 3,
             h: 3,
@@ -352,7 +353,7 @@ const CustomDashboard = () => {
     const addTeamPerformanceCardsWidget = () => {
         const newWidget = {
             i: `team-performance-cards-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 2,
@@ -364,7 +365,7 @@ const CustomDashboard = () => {
     const addSessionClassificationWidget = () => {
         const newWidget = {
             i: `session-classification-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 3,
@@ -374,7 +375,7 @@ const CustomDashboard = () => {
     // const addSeasonStandingsLeaderboardWidget = () => {
     //     const newWidget = {
     //         i: `season-standings-leaderboard-${layout.length + 1}`,
-    //         x: (layout.length * 2) % Math.floor(gridWidth / 100),
+    //         x: (layout.length * 5) % Math.floor(gridWidth / 50),
     //         y: Infinity,
     //         w: 4,
     //         h: 3,
@@ -384,7 +385,7 @@ const CustomDashboard = () => {
     const addBMWAwardWidget = () => {
         const newWidget = {
             i: `bmw-award-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 3,
             h: 3,
@@ -394,7 +395,7 @@ const CustomDashboard = () => {
     const addRiderSeasonHistoryWidget = (riderName) => {
         const newWidget = {
             i: `rider-season-history-${riderName}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 18,
             h: 8,
@@ -408,7 +409,7 @@ const CustomDashboard = () => {
     const addCircuitComparisonWidget = () => {
         const newWidget = {
             i: `circuit-comparison-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 2,
@@ -418,7 +419,7 @@ const CustomDashboard = () => {
     const addSessionTypeWeatherWidget = (type) => {
         const newWidget = {
             i: `session-type-weather-${type || 'all'}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 2,
@@ -428,7 +429,7 @@ const CustomDashboard = () => {
     const addEventOverviewWidget = (eventId) => {
         const newWidget = {
             i: `event-overview-${eventId}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 3,
@@ -438,7 +439,7 @@ const CustomDashboard = () => {
     const addCircuitInfoWidget = (eventId) => {
         const newWidget = {
             i: `circuit-info-${eventId}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 9,
             h: 9,
@@ -450,7 +451,7 @@ const CustomDashboard = () => {
     const addCircuitDescriptionWidget = (eventId) => {
         const newWidget = {
             i: `circuit-description-${eventId}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 10,
             h: 8,
@@ -462,7 +463,7 @@ const CustomDashboard = () => {
     const addGridStandingsWidget = (eventId) => {
         const newWidget = {
             i: `grid-standings-${eventId}-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 4,
             h: 3,
@@ -474,7 +475,7 @@ const CustomDashboard = () => {
         console.log("Adding Driver Comparison Widget");
         const newWidget = {
             i: `driver-comparison-${layout.length + 1}`,
-            x: (layout.length * 2) % Math.floor(gridWidth / 100),
+            x: (layout.length * 5) % Math.floor(gridWidth / 50),
             y: Infinity,
             w: 9,
             h: 9,
@@ -548,103 +549,222 @@ const CustomDashboard = () => {
     }
 
     return (
-        <div style={{ minHeight: '80vh' }}>
-            {/*add rider selection */}
-            <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="rider-select">Select Rider:</label>
-                <select
-                    id="rider-select"
-                    value={selectedRider}
-                    onChange={(e) => setSelectedRider(e.target.value)}
-                >
-                    <option value="">-- Select Rider --</option>
-                    {riders.map((rider) => (
-                        <option key={rider.legacy_id} value={rider.legacy_id}>
-                            {rider.full_name}
-                        </option>
-                    ))}
-                </select>
-                <label htmlFor="year-select" style={{ marginLeft: '20px' }}>Select Year:</label>
-                <select
-                    id="year-select"
-                    value={selectedYear}
-                    onChange={(e) => setSelectedYear(e.target.value)}
-                    >
-                    {categories.map((category) => (
-                        <option key={category.year} value={category.year}>
-                            {category.seasonYear}
-                        </option>
-                    ))}
-                </select>
-                <label htmlFor="category-select" style={{ marginLeft: '20px' }}>Select Category:</label>
-                <select
-                    id="category-select"
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                >
-                    <option value="">-- Select Category --</option>
-                    {categories.find(c => c.seasonYear === Number(selectedYear))?.categories.map((category) => (
-                        <option key={category.legacy_id} value={category.legacy_id}>
-                            {category.bc_name}
-                        </option>
-                    ))}
-                </select>
-                <label htmlFor="event-select" style={{ marginLeft: '20px' }}>Select Event:</label>
-                <select
-                    id="event-select"
-                    value={selectedEvent}
-                    onChange={(e) => setSelectedEvent(e.target.value)}
-                >
-                    <option value="">-- Select Event --</option>
-                    {events.map((event) => (
-                        <option key={event.id} value={event.id}>
-                            {event.name}
-                        </option>
-                    ))}
-                </select>
-
-            </div>
-            {/* Add widget buttons UI (insert in render return) */}
-            <div className="widget-buttons">
-                <button style={{background:"green"}} onClick={addRiderStatsWidget}>Add Rider Stats</button>
-                {/*<button style={{background:"red"}} onClick={addSpeedBySeasonWidget}>Add Speed by Season</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addSeasonEvolutionWidget}>Add Season Evolution</button>*/}
-                <button style={{background:"green"}} onClick={addRiderMilestonesWidget}>Add Rider Milestones</button>
-                <button style={{background:"green"}} onClick={addRiderProfileWidget}>Add Rider Profile</button>
-                <button style={{background:"green"}} onClick={addCareerTimelineWidget}>Add Career Timeline</button>
-                {/*<button style={{background:"red"}} onClick={addTrophyDisplayWidget}>Add Trophy Display</button>*/}
-                <button style={{background:"green"}} onClick={addChampionshipStandingsWidget}>Add Championship Standings</button>
-                <button style={{background:"green"}} onClick={addNextEventWidget}>Add Next Event Widget</button>
-                {/*<button style={{background:"blue"}} onClick={addTeamAnalysisWidget}>Add Team Analysis</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addTeamAchievementsWidget}>Add Team Achievements</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addTeamComparisonWidget}>Add Team Comparison</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addTeamPerformanceCardsWidget}>Add Team Performance Cards</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addSessionClassificationWidget}>Add Session Classification</button>*/}
-                {/*<button style={{background:"red"}} onClick={addSeasonStandingsLeaderboardWidget}>Add Season Standings</button>*/}
-                {/*<button style={{background:"red"}} onClick={addBMWAwardWidget}>Add BMW Award</button>*/}
-                <button style={{background:"green"}} onClick={() => addRiderSeasonHistoryWidget("rider1")}>Add Rider Season History</button>
-                {/*<button style={{background:"blue"}} onClick={addCircuitComparisonWidget}>Add Circuit Comparison</button>*/}
-                {/*<button style={{background:"blue"}} onClick={() => addSessionTypeWeatherWidget("dry")}>Add Session Type/Weather</button>*/}
-                {/*<button style={{background:"orange"}} onClick={() => addEventOverviewWidget("event1")}>Add Event Overview</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addTopSpeedWidget}>Add Top Speed Widget</button>*/}
-                {/*<button style={{background:"blue"}} onClick={addTopSpeedWidget}>Add Riders Comparison</button>*/}
-                <button style={{background:"green"}} onClick={() => addCircuitInfoWidget(selectedEvent)}>Add Circuit Info Widget</button>
-                <button style={{background:"green"}} onClick={() => addCircuitDescriptionWidget(selectedEvent)}>Add Circuit Description Widget</button>
-                {/*<button style={{background:"yellow"}} onClick={() => addGridStandingsWidget(selectedEvent)}>Add Grid Standings Widget</button>*/}
-                <button style={{background:"green"}} onClick={() => addDriverComparisonWidget()}>Add Driver Comparison Widget</button>
-            </div>
-            {/*<button onClick={addWidget}>Add Widget</button>*/}
-            {/*<button onClick={addSquareWidget}>Add Square Widget</button>*/}
-            {/*<button onClick={addCustomWidget}>Add Custom Widget</button>*/}
-            <button onClick={clearWidgets}>Clear Widgets</button>
+        <Container fluid style={{ minHeight: '80vh', padding: '32px 0' }}>
+            {/* Selection Bar */}
+            <Card className="mb-4 mt-0 m-5 shadow-sm" bg="dark" text="light" style={{ borderRadius: '18px' }}>
+                <Card.Body>
+                    <Row className="align-items-end g-2">
+                        <Col xs={12} md={3}>
+                            <Form.Group>
+                                <Form.Label>{translations[language].dashboard.selectRider}</Form.Label>
+                                <div style={{position: 'relative', minWidth: 120}}>
+                                <Form.Select
+                                    value={selectedRider}
+                                    onChange={(e) => setSelectedRider(e.target.value)}
+                                    style={{
+                                        background: '#23272b',
+                                        color: '#fff',
+                                        border: '1px solid #444b53',
+                                        borderRadius: '8px',
+                                        padding: '6px 32px 6px 12px',
+                                        fontSize: '1rem',
+                                        outline: 'none',
+                                        appearance: 'none',
+                                        width: '100%',
+                                        minWidth: '100px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    <option value="">-- {translations[language].dashboard.selectRider} --</option>
+                                    {riders.map((rider) => (
+                                        <option key={rider.legacy_id} value={rider.legacy_id}>
+                                            {rider.full_name}
+                                        </option>
+                                    ))}
+                                </Form.Select>
+                                <span
+                                    style={{
+                                        pointerEvents: 'none',
+                                        position: 'absolute',
+                                        right: 12,
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '1.2em',
+                                        color: '#bbb',
+                                    }}
+                                >
+            ▼
+          </span>
+                            </div>
+                            </Form.Group>
+                        </Col>
+                        <Col xs={12} md={2}>
+                            <Form.Group>
+                                <Form.Label>{translations[language].dashboard.selectYear}</Form.Label>
+                                <div style={{position: 'relative', minWidth: 120}}>
+                                <Form.Select
+                                    value={selectedYear}
+                                    onChange={(e) => setSelectedYear(e.target.value)}
+                                    style={{
+                                        background: '#23272b',
+                                        color: '#fff',
+                                        border: '1px solid #444b53',
+                                        borderRadius: '8px',
+                                        padding: '6px 32px 6px 12px',
+                                        fontSize: '1rem',
+                                        outline: 'none',
+                                        appearance: 'none',
+                                        width: '100%',
+                                        minWidth: '100px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    {categories.map((category) => (
+                                        <option key={category.year} value={category.year}>
+                                            {category.seasonYear}
+                                        </option>
+                                    ))}
+                                </Form.Select>
+                                <span
+                                    style={{
+                                        pointerEvents: 'none',
+                                        position: 'absolute',
+                                        right: 12,
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '1.2em',
+                                        color: '#bbb',
+                                    }}
+                                >
+            ▼
+          </span>
+                            </div>
+                            </Form.Group>
+                        </Col>
+                        <Col xs={12} md={3}>
+                            <Form.Group>
+                                <Form.Label>{translations[language].dashboard.selectCategory}</Form.Label>
+                                <div style={{position: 'relative', minWidth: 120}}>
+                                <Form.Select
+                                    value={selectedCategory}
+                                    onChange={(e) => setSelectedCategory(e.target.value)}
+                                    style={{
+                                        background: '#23272b',
+                                        color: '#fff',
+                                        border: '1px solid #444b53',
+                                        borderRadius: '8px',
+                                        padding: '6px 32px 6px 12px',
+                                        fontSize: '1rem',
+                                        outline: 'none',
+                                        appearance: 'none',
+                                        width: '100%',
+                                        minWidth: '100px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    <option value="">-- {translations[language].dashboard.selectCategory} --</option>
+                                    {categories.find(c => c.seasonYear === Number(selectedYear))?.categories.map((category) => (
+                                        <option key={category.legacy_id} value={category.legacy_id}>
+                                            {category.bc_name}
+                                        </option>
+                                    ))}
+                                </Form.Select>
+                                <span
+                                    style={{
+                                        pointerEvents: 'none',
+                                        position: 'absolute',
+                                        right: 12,
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '1.2em',
+                                        color: '#bbb',
+                                    }}
+                                >
+            ▼
+          </span>
+                            </div>
+                            </Form.Group>
+                        </Col>
+                        <Col xs={12} md={4}>
+                            <Form.Group>
+                                <Form.Label>{translations[language].dashboard.selectEvent}</Form.Label>
+                                <div style={{position: 'relative', minWidth: 120}}>
+                                <Form.Select
+                                    value={selectedEvent}
+                                    onChange={(e) => setSelectedEvent(e.target.value)}
+                                    style={{
+                                        background: '#23272b',
+                                        color: '#fff',
+                                        border: '1px solid #444b53',
+                                        borderRadius: '8px',
+                                        padding: '6px 32px 6px 12px',
+                                        fontSize: '1rem',
+                                        outline: 'none',
+                                        appearance: 'none',
+                                        width: '100%',
+                                        minWidth: '100px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    <option value="">-- {translations[language].dashboard.selectEvent} --</option>
+                                    {events.map((event) => (
+                                        <option key={event.id} value={event.id}>
+                                            {event.name}
+                                        </option>
+                                    ))}
+                                </Form.Select>
+                                    <span
+                                        style={{
+                                            pointerEvents: 'none',
+                                            position: 'absolute',
+                                            right: 12,
+                                            top: '50%',
+                                            transform: 'translateY(-50%)',
+                                            fontSize: '1.2em',
+                                            color: '#bbb',
+                                        }}
+                                    >
+            ▼
+          </span>
+                                </div>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+            {/* Widget Add Buttons */}
+            <Card className="mb-4 mt-0 m-5 shadow-sm" bg="dark" text="light" style={{ borderRadius: '18px' }}>
+                <Card.Body>
+                    <Row className="g-2">
+                        <Col>
+                            <ButtonGroup>
+                                <Button variant="success" onClick={addRiderStatsWidget}>{translations[language].widgets.riderStats.title}</Button>
+                                <Button variant="success" onClick={addRiderMilestonesWidget}>{translations[language].widgets.milestones.title}</Button>
+                                <Button variant="success" onClick={addRiderProfileWidget}>{translations[language].widgets.riderProfile.title}</Button>
+                                <Button variant="success" onClick={addCareerTimelineWidget}>{translations[language].widgets.careerTimeline.title}</Button>
+                                <Button variant="success" onClick={addChampionshipStandingsWidget}>{translations[language].widgets.championshipsStandings.title}</Button>
+                                <Button variant="success" onClick={addNextEventWidget}>{translations[language].widgets.nextEvent.title}</Button>
+                                <Button variant="success" onClick={() => addRiderSeasonHistoryWidget("rider1")}>{translations[language].widgets.seasonHistory.title}</Button>
+                                <Button variant="success" onClick={() => addCircuitInfoWidget(selectedEvent)}>{translations[language].widgets.circuitInfo.title}</Button>
+                                <Button variant="success" onClick={() => addCircuitDescriptionWidget(selectedEvent)}>{translations[language].widgets.circuitDescription.title}</Button>
+                                <Button variant="success" onClick={() => addDriverComparisonWidget()}>{translations[language].widgets.driverComparison.title}</Button>
+                            </ButtonGroup>
+                        </Col>
+                        <Col xs="auto">
+                            <Button variant="danger" onClick={clearWidgets}>{translations[language].dashboard.clearWidget}</Button>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+            {/* Dashboard Grid */}
             <GridLayout
                 className="layout"
                 layout={layout}
                 cols={gridWidth / 50}
-                rowHeight={50} // Set row height to match column width
+                rowHeight={50}
                 width={gridWidth}
                 onLayoutChange={(newLayout) => enforceSquareRatio(newLayout)}
-                draggableHandle=".drag-handle" // Restrict dragging to elements with the drag-handle class
+                draggableHandle=".drag-handle"
             >
                 {layout.map((item) => (
                     <div
@@ -710,17 +830,12 @@ const CustomDashboard = () => {
 
                 {/* content (switch statement that compare the beginning of a widget up til first dash) */}
                         <div style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        {getComponent(item.i)}
+                            {getComponent(item.i)}
                         </div>
-
-        </div>
+                    </div>
                 ))}
             </GridLayout>
-            {/*<div style={{ marginTop: '20px' }}>*/}
-            {/*    <button onClick={() => dispatch(increment())}>Increment Counter</button>*/}
-            {/*    <p>Counter Value: {counter}</p>*/}
-            {/*</div>*/}
-        </div>
+        </Container>
     );
 };
 

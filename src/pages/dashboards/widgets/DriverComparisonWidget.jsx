@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { getRiderNameByLegacyId, getRidersIds, getRiderStats } from "../../../data/jsonAPI.js";
 import { Form, FormGroup, FormLabel, FormSelect, Container, Row, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang';
 
 const statKeys = [
     { key: 'wins', label: 'Wins' },
@@ -24,6 +26,7 @@ const DriverComparisonWidget = ({ riderLegacyId }) => {
     });
     const [rider2LegacyId, setRider2LegacyId] = useState(null);
     const [riders, setRiders] = useState(null);
+    const language = useSelector((state) => state.language.value);
 
     useEffect(() => {
         const fetchRiders = async () => {
@@ -69,7 +72,7 @@ const DriverComparisonWidget = ({ riderLegacyId }) => {
     }, [rider2LegacyId]);
 
     // Prepare radar chart data
-    const chartData = statKeys.map(({ key, label }) => ({
+    const chartData = translations[language].widgets.driverComparison.stats.map(({ key, label }) => ({
         subject: label,
         [stats.name]: stats[key],
         [stats2.name]: stats2[key],
@@ -79,7 +82,7 @@ const DriverComparisonWidget = ({ riderLegacyId }) => {
         <Container>
             <Row>
                 <Col>
-                    <h3>Driver Comparison</h3>
+                    <h3>{translations[language].widgets.driverComparison.title}</h3>
                 </Col>
             </Row>
             {riders && riders.length > 0 ? (
@@ -87,20 +90,48 @@ const DriverComparisonWidget = ({ riderLegacyId }) => {
                     <Col>
                         <Form>
                             <FormGroup>
-                                <FormLabel htmlFor="rider2Select">Select Rider 2:</FormLabel>
+                                <FormLabel htmlFor="rider2Select">{translations[language].widgets.driverComparison.selectRider2}:</FormLabel>
+                                <div style={{position: 'relative', minWidth: 120}}>
                                 <FormSelect
                                     id="rider2Select"
                                     value={rider2LegacyId}
                                     onChange={(e) => setRider2LegacyId(e.target.value)}
-                                    style={{ marginBottom: 16 }}
+                                    style={{
+                                        background: '#23272b',
+                                        color: '#fff',
+                                        border: '1px solid #444b53',
+                                        borderRadius: '8px',
+                                        padding: '6px 32px 6px 12px',
+                                        fontSize: '1rem',
+                                        outline: 'none',
+                                        appearance: 'none',
+                                        width: '100%',
+                                        minWidth: '100px',
+                                        cursor: 'pointer',
+                                        marginBottom: 16
+                                    }}
                                 >
-                                    <option value="">-- Select Rider --</option>
+                                    <option value="">-- {translations[language].widgets.driverComparison.selectRider2} --</option>
                                     {riders.map((rider) => (
                                         <option key={rider.legacy_id} value={rider.legacy_id}>
                                             {rider.full_name}
                                         </option>
                                     ))}
                                 </FormSelect>
+                                <span
+                                    style={{
+                                        pointerEvents: 'none',
+                                        position: 'absolute',
+                                        right: 12,
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '1.2em',
+                                        color: '#bbb',
+                                    }}
+                                >
+            ▼
+          </span>
+                            </div>
                             </FormGroup>
                         </Form>
                     </Col>
@@ -108,7 +139,7 @@ const DriverComparisonWidget = ({ riderLegacyId }) => {
             ) : (
                 <Row>
                     <Col>
-                        <p>Loading...</p>
+                        <p>{translations[language].loading}</p>
                     </Col>
                 </Row>
             )}

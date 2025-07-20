@@ -6,9 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Spinner from 'react-bootstrap/Spinner';
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang';
 
 const RiderProfileWidget = ({ riderLegacyId }) => {
     const [rider, setRider] = useState(null);
+    const language = useSelector((state) => state.language.value);
 
     useEffect(() => {
         async function fetchRider() {
@@ -27,8 +30,8 @@ const RiderProfileWidget = ({ riderLegacyId }) => {
                             <Spinner animation="border" variant="primary" />
                         </Col>
                         <Col>
-                            <Card.Title className="h4 mb-0">Rider Profile</Card.Title>
-                            <Card.Text className="text-muted">Loading rider data...</Card.Text>
+                            <Card.Title className="h4 mb-0">{translations[language].widgets.riderProfile.title}</Card.Title>
+                            <Card.Text className="text-muted">{translations[language].loading}</Card.Text>
                         </Col>
                     </Row>
                 </Card.Body>
@@ -40,7 +43,7 @@ const RiderProfileWidget = ({ riderLegacyId }) => {
         rider.current_career_step?.pictures?.profile?.main ||
         rider.picture ||
         rider.photo ||
-        'https://via.placeholder.com/80';
+        'https://randomuser.me/api/portraits/lego/1.jpg';
 
     return (
         <Card className={"w-100 h-100 z-0"}>
@@ -62,16 +65,16 @@ const RiderProfileWidget = ({ riderLegacyId }) => {
                             {rider.full_name || 'Rider Profile'}
                         </Card.Title>
                         <div className="text-muted mb-2">
-                            {rider.current_career_step?.team?.name || 'No current team'}
+                            {rider.current_career_step?.team?.name || translations[language].widgets.riderProfile.noTeams}
                         </div>
                         <div>
                             {rider.retired ? (
                                 <Badge bg="secondary" className="me-2">
-                                    Retired {rider.retired_year ? `in ${rider.retired_year}` : ''}
+                                    {translations[language].widgets.riderProfile.retired}
                                 </Badge>
                             ) : (
                                 <Badge bg="success" className="me-2">
-                                    Active
+                                    {translations[language].widgets.riderProfile.active}
                                 </Badge>
                             )}
                         </div>
@@ -81,40 +84,40 @@ const RiderProfileWidget = ({ riderLegacyId }) => {
                 <Row className="mb-2">
                     <Col md={6} className="mb-2 mb-md-0">
                         <Badge bg="primary" className="me-2">
-                            Country: {rider.country?.name || '-'}
+                            {translations[language].widgets.riderProfile.country}: {rider.country?.name || '-'}
                         </Badge>
                     </Col>
                     <Col md={6}>
                         <Badge bg="info" className="me-2">
-                            Birthday: {rider.birth_date || '-'}
+                            {translations[language].widgets.riderProfile.birthday}: {rider.birth_date || '-'}
                         </Badge>
                         <Badge bg="light" text="dark" className="me-2">
-                            Age: {rider.years_old || '-'}
+                            {translations[language].widgets.riderProfile.age}: {rider.years_old || '-'}
                         </Badge>
                     </Col>
                 </Row>
                 <Row className="mb-2">
                     <Col md={6} className="mb-2 mb-md-0">
                         <Badge bg="secondary" className="me-2">
-                            Birth City: {rider.birth_city || '-'}
+                            {translations[language].widgets.riderProfile.birthCity}: {rider.birth_city || '-'}
                         </Badge>
                     </Col>
                     <Col md={6}>
                         <Badge bg="warning" text="light" className="me-2">
-                            Category: {rider.current_career_step?.category?.name || '-'}
+                            {translations[language].widgets.riderProfile.category}: {rider.current_career_step?.category?.name || '-'}
                         </Badge>
                     </Col>
                 </Row>
                 <Row className="mb-2">
                     <Col md={6} className="mb-2 mb-md-0">
                         <Badge bg="dark" className="me-2">
-                            Start Year: {rider.start_year || '-'}
+                            {translations[language].widgets.riderProfile.startYear}: {rider.start_year || '-'}
                         </Badge>
                     </Col>
                     <Col md={6}>
                         {rider.retired && (
                             <Badge bg="danger" className="me-2">
-                                Career Ended: {rider.retired_year || '-'}
+                                {translations[language].widgets.riderProfile.retiredIn}: {rider.retired_year || '-'}
                             </Badge>
                         )}
                     </Col>

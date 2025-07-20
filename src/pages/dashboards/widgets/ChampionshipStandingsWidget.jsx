@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {getCategories, getStandingsByCategory, getTeamColor} from '../../../data/jsonAPI';
 import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang';
 
 const ChampionshipStandingsWidget = () => {
     const [standings, setStandings] = useState(null);
@@ -9,6 +11,7 @@ const ChampionshipStandingsWidget = () => {
     const [year, setYear] = useState(2025);
     const [category, setCategory] = useState(null);
     const [categories, setCategories] = useState(null);
+    const language = useSelector((state) => state.language.value);
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -67,7 +70,7 @@ const ChampionshipStandingsWidget = () => {
 
     return (
         <div className="h-100">
-            <h2>MotoGP Championship Standings</h2>
+            <h2>{translations[language].widgets.championshipsStandings.title}</h2>
             <div style={{display: 'flex', gap: 16, marginBottom: 16}}>
                 {/* Styled dropdowns */}
                 <div style={{position: 'relative', minWidth: 120}}>
@@ -206,22 +209,22 @@ const ChampionshipStandingsWidget = () => {
                         }}
                     >
                         <th className="text-center" style={{width: 50}}>
-                            Pos
+                            {translations[language].widgets.championshipsStandings.position}
                         </th>
                         <th className="text-center" style={{width: 180}}>
-                            Rider
+                            {translations[language].widgets.championshipsStandings.rider}
                         </th>
                         <th className="text-center" style={{width: 180}}>
-                            Team
+                            {translations[language].widgets.championshipsStandings.team}
                         </th>
                         <th className="text-center" style={{width: 160}}>
-                            Points
+                            {translations[language].widgets.championshipsStandings.points}
                         </th>
                         <th className="text-center" style={{width: 100}}>
-                            Podiums
+                            {translations[language].widgets.championshipsStandings.podiums}
                         </th>
                         <th className="text-center" style={{width: 100}}>
-                            Wins
+                            {translations[language].widgets.championshipsStandings.wins}
                         </th>
                     </tr>
                     </thead>
@@ -235,7 +238,7 @@ const ChampionshipStandingsWidget = () => {
                                     size="sm"
                                     className="me-2"
                                 />
-                                Loading...
+                                {translations[language].loading}
                             </td>
                         </tr>
                     ) : (
@@ -338,3 +341,4 @@ const ChampionshipStandingsWidget = () => {
 };
 
 export default ChampionshipStandingsWidget;
+

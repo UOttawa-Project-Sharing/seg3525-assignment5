@@ -2,6 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import { TrophyFill, AwardFill } from 'react-bootstrap-icons';
+import { useSelector } from 'react-redux';
+import translations from '../data/lang.jsx';
 
 function RiderStatCard({
                            number,
@@ -15,6 +17,8 @@ function RiderStatCard({
                            position,
                            wins,
                        }) {
+    const language = useSelector((state) => state.language.value);
+
     return (
         <Card
             style={{
@@ -98,7 +102,7 @@ function RiderStatCard({
                     )}
                 </div>
                 <div style={{ fontSize: 15, color: '#3b4960', marginBottom: 14 }}>
-                    <span style={{ fontWeight: 600 }}>Constructor:</span> {constructor}
+                    <span style={{ fontWeight: 600 }}>{translations[language].home.riderCard.constructor}:</span> {constructor}
                 </div>
                 <div style={{
                     display: 'flex',
@@ -136,7 +140,7 @@ function RiderStatCard({
                         }}
                     >
                         <AwardFill style={{ marginRight: 5 }} size={20} />
-                        {podiums} podiums
+                        {podiums} {translations[language].home.riderCard.podiums}
                     </div>
                 </div>
                 <div
@@ -153,7 +157,7 @@ function RiderStatCard({
                     }}
                 >
                     <AwardFill style={{ marginRight: 5 }} size={20} />
-                    Position: {position}
+                    {translations[language].home.riderCard.position}: {position}
                 </div>
                 {wins > 0 && (
                     <div
@@ -169,7 +173,7 @@ function RiderStatCard({
                         }}
                     >
                         <i className={"bi bi-trophy-fill"} style={{ marginRight: 5 }}></i>
-                        Wins: {wins}
+                        {translations[language].home.riderCard.wins}: {wins}
                     </div>
                 )}
             </Card.Body>

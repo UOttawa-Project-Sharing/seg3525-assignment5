@@ -11,6 +11,8 @@ import {
 } from 'recharts';
 import { Container, Card, Spinner } from 'react-bootstrap';
 import { getRiderNameByLegacyId, getRiderSeasonHistory } from '../../../data/jsonAPI.js';
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang.jsx';
 
 const LINE_COLORS = {
     points: '#e53935',
@@ -21,20 +23,21 @@ const LINE_COLORS = {
     position: '#ffa726',
 };
 
-const CHART_LABELS = {
-    points: 'Points',
-    poles: 'Poles',
-    podiums: 'Podiums',
-    first_position: 'Wins',
-    starts: 'Race Starts',
-    position: 'Championship Position',
-};
+
 
 export function RiderSeasonHistoryWidget({ riderName }) {
     const [seasonHistory, setSeasonHistory] = useState([]);
     const [riderData, setRiderData] = useState("UNKNOWN");
     const [loading, setLoading] = useState(true);
-
+    const language = useSelector((state) => state.language.value);
+    const CHART_LABELS = {
+        points: translations[language].widgets.seasonHistory.points,
+        poles: translations[language].widgets.seasonHistory.statistics,
+        podiums: translations[language].widgets.seasonHistory.podiums,
+        first_position: translations[language].widgets.seasonHistory.wins,
+        starts: translations[language].widgets.seasonHistory.raceStart,
+        position: translations[language].widgets.seasonHistory.champuionshipsPositions,
+    };
     useEffect(() => {
         setLoading(true);
         Promise.all([
@@ -47,7 +50,6 @@ export function RiderSeasonHistoryWidget({ riderName }) {
         });
     }, [riderName]);
 
-    // Flip the seasonHistory array for vertical axis inversion
     const flippedSeasonHistory = [...seasonHistory].reverse();
 
     return (
@@ -55,17 +57,17 @@ export function RiderSeasonHistoryWidget({ riderName }) {
             <Card className="mb-4 bg-transparent border-0">
                 <Card.Body>
                     <Card.Title as="h3" className="mb-4" style={{ color: "#fff", fontWeight: 600 }}>
-                        Historique de Saison&nbsp;
+                        {translations[language].widgets.seasonHistory.title}&nbsp;
                         <span style={{ color: '#ffa726', fontWeight: 700 }}>{riderData}</span>
                     </Card.Title>
                     {loading ? (
                         <div className="d-flex align-items-center justify-content-center" style={{ height: 320 }}>
                             <Spinner animation="border" variant="warning" className="me-2" />
-                            <span style={{ color: "#bbb", fontWeight: 500 }}>Chargement des données...</span>
+                            <span style={{ color: "#bbb", fontWeight: 500 }}>{translations[language].loading}</span>
                         </div>
                     ) : !riderData || !seasonHistory.length ? (
                         <div className="text-center py-4" style={{ color: "#bbb" }}>
-                            Aucune donnée pour {riderName}
+                            {translations[language].widgets.seasonHistory.noData} {riderName}
                         </div>
                     ) : (
                         <div style={{ width: "100%", height: 320 }}>
@@ -81,7 +83,7 @@ export function RiderSeasonHistoryWidget({ riderName }) {
                                         axisLine={{ stroke: "#fff" }}
                                         tickLine={false}
                                         label={{
-                                            value: "Saison",
+                                            value: translations[language].widgets.seasonHistory.year,
                                             position: "insideBottom",
                                             fill: "#aaa",
                                             fontSize: 14,
@@ -93,7 +95,7 @@ export function RiderSeasonHistoryWidget({ riderName }) {
                                         tick={{ fill: "#fff", fontSize: 13 }}
                                         axisLine={{ stroke: "#fff" }}
                                         label={{
-                                            value: "Statistiques",
+                                            value: translations[language].widgets.seasonHistory.statistics,
                                             angle: -90,
                                             position: "insideLeft",
                                             fill: "#aaa",
@@ -106,7 +108,7 @@ export function RiderSeasonHistoryWidget({ riderName }) {
                                         tick={{ fill: "#fff", fontSize: 13 }}
                                         axisLine={{ stroke: "#fff" }}
                                         label={{
-                                            value: "Points",
+                                            value: translations[language].widgets.seasonHistory.points,
                                             angle: -90,
                                             position: "insideRight",
                                             fill: "#aaa",
@@ -120,7 +122,7 @@ export function RiderSeasonHistoryWidget({ riderName }) {
                                         tick={{ fill: "#ffa726", fontSize: 13 }}
                                         axisLine={{ stroke: "#ffa726" }}
                                         label={{
-                                            value: "Position",
+                                            value: translations[language].widgets.seasonHistory.position,
                                             angle: -90,
                                             position: "outsideRight",
                                             fill: "#ffa726",
@@ -206,3 +208,5 @@ export function RiderSeasonHistoryWidget({ riderName }) {
         </Container>
     );
 }
+
+export default RiderSeasonHistoryWidget;

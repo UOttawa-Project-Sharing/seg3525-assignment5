@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col, Badge, Spinner } from 'react-bootstrap';
 import { getNextEvent } from "../../../data/jsonAPI.js";
+import { useSelector } from 'react-redux';
+import translations from '../../../data/lang';
 
 const NextEventWidget = () => {
     const [nextEvent, setNextEvent] = useState(null);
     const [countdown, setCountdown] = useState("");
     const [next, setNext] = useState(0);
     const [loading, setLoading] = useState(false);
+    const language = useSelector((state) => state.language.value);
 
     useEffect(() => {
         const fetch = async () => {
@@ -34,7 +37,7 @@ const NextEventWidget = () => {
             const eventDate = new Date(Date.parse(nextEvent.date_start));
             const diff = eventDate - now;
             if (diff <= 0) {
-                setCountdown("Event started!");
+                setCountdown(translations[language].widgets.nextEvent.eventStarted);
                 return;
             }
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -46,7 +49,7 @@ const NextEventWidget = () => {
         updateCountdown();
         const timer = setInterval(updateCountdown, 1000);
         return () => clearInterval(timer);
-    }, [nextEvent]);
+    }, [nextEvent, language]);
 
     return (
         <Card className="bg-transparent border-0 p-5 w-100">
@@ -59,13 +62,13 @@ const NextEventWidget = () => {
                             className="me-2"
                             onClick={() => setNext(next > 0 ? next - 1 : 0)}
                             disabled={loading || next === 0}
-                            aria-label="Previous Event"
+                            aria-label={translations[language].widgets.nextEvent.previousEvent}
                         >
                             &lt;
                         </Button>
                     </Col>
                     <Col>
-                        <h4 className="mb-0 text-center">Next Event</h4>
+                        <h4 className="mb-0 text-center">{translations[language].widgets.nextEvent.title}</h4>
                     </Col>
                     <Col xs="auto">
                         <Button
@@ -74,7 +77,7 @@ const NextEventWidget = () => {
                             className="ms-2"
                             onClick={() => setNext(next + 1)}
                             disabled={loading}
-                            aria-label="Next Event"
+                            aria-label={translations[language].widgets.nextEvent.nextEvent}
                         >
                             &gt;
                         </Button>
@@ -107,15 +110,15 @@ const NextEventWidget = () => {
                         <Col>
                             <h5 className="mb-2 fw-bold">{nextEvent.name}</h5>
                             <p className="mb-1">
-                                <Badge bg="info" className="me-1">Date</Badge>
+                                <Badge bg="info" className="me-1">{translations[language].widgets.nextEvent.date}</Badge>
                                 {new Date(Date.parse(nextEvent.date_start)).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
                             </p>
                             <p className="mb-1">
-                                <Badge bg="secondary" className="me-1">Location</Badge>
+                                <Badge bg="secondary" className="me-1">{translations[language].widgets.nextEvent.location}</Badge>
                                 {nextEvent.circuit.name} - {nextEvent.country.name}
                             </p>
                             <p className="mb-1">
-                                <Badge bg="warning" className="me-1 text-dark">Countdown</Badge>
+                                <Badge bg="warning" className="me-1 text-light">{translations[language].widgets.nextEvent.countdown}</Badge>
                                 <span style={{ fontWeight: 'bold', color: '#c77d12' }}>
                   <span role="img" aria-label="timer">⏳</span> {countdown}
                 </span>
@@ -123,7 +126,7 @@ const NextEventWidget = () => {
                         </Col>
                     </Row>
                 ) : (
-                    <div className="text-center py-4 text-muted">No upcoming events.</div>
+                    <p>{translations[language].widgets.nextEvent.noEvent}</p>
                 )}
             </Card.Body>
         </Card>
