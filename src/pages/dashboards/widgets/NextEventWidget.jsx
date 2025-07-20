@@ -111,7 +111,7 @@ const NextEventWidget = () => {
                             <h5 className="mb-2 fw-bold">{nextEvent.name}</h5>
                             <p className="mb-1">
                                 <Badge bg="info" className="me-1">{translations[language].widgets.nextEvent.date}</Badge>
-                                {new Date(Date.parse(nextEvent.date_start)).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
+                                {new Date(Date.parse(nextEvent.date_start)).toLocaleString(`${language}-CA`, { dateStyle: 'medium', timeStyle: 'short' })}
                             </p>
                             <p className="mb-1">
                                 <Badge bg="secondary" className="me-1">{translations[language].widgets.nextEvent.location}</Badge>

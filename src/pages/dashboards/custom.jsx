@@ -672,50 +672,50 @@ const CustomDashboard = () => {
                             </div>
                             </Form.Group>
                         </Col>
-                        <Col xs={12} md={3}>
-                            <Form.Group>
-                                <Form.Label>{translations[language].dashboard.selectCategory}</Form.Label>
-                                <div style={{position: 'relative', minWidth: 120}}>
-                                <Form.Select
-                                    value={selectedCategory}
-                                    onChange={(e) => setSelectedCategory(e.target.value)}
-                                    style={{
-                                        background: '#23272b',
-                                        color: '#fff',
-                                        border: '1px solid #444b53',
-                                        borderRadius: '8px',
-                                        padding: '6px 32px 6px 12px',
-                                        fontSize: '1rem',
-                                        outline: 'none',
-                                        appearance: 'none',
-                                        width: '100%',
-                                        minWidth: '100px',
-                                        cursor: 'pointer',
-                                    }}
-                                >
-                                    <option value="">-- {translations[language].dashboard.selectCategory} --</option>
-                                    {categories.find(c => c.seasonYear === Number(selectedYear))?.categories.map((category) => (
-                                        <option key={category.legacy_id} value={category.legacy_id}>
-                                            {category.bc_name}
-                                        </option>
-                                    ))}
-                                </Form.Select>
-                                <span
-                                    style={{
-                                        pointerEvents: 'none',
-                                        position: 'absolute',
-                                        right: 12,
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        fontSize: '1.2em',
-                                        color: '#bbb',
-                                    }}
-                                >
-            ▼
-          </span>
-                            </div>
-                            </Form.Group>
-                        </Col>
+          {/*              <Col xs={12} md={3}>*/}
+          {/*                  <Form.Group>*/}
+          {/*                      <Form.Label>{translations[language].dashboard.selectCategory}</Form.Label>*/}
+          {/*                      <div style={{position: 'relative', minWidth: 120}}>*/}
+          {/*                      <Form.Select*/}
+          {/*                          value={selectedCategory}*/}
+          {/*                          onChange={(e) => setSelectedCategory(e.target.value)}*/}
+          {/*                          style={{*/}
+          {/*                              background: '#23272b',*/}
+          {/*                              color: '#fff',*/}
+          {/*                              border: '1px solid #444b53',*/}
+          {/*                              borderRadius: '8px',*/}
+          {/*                              padding: '6px 32px 6px 12px',*/}
+          {/*                              fontSize: '1rem',*/}
+          {/*                              outline: 'none',*/}
+          {/*                              appearance: 'none',*/}
+          {/*                              width: '100%',*/}
+          {/*                              minWidth: '100px',*/}
+          {/*                              cursor: 'pointer',*/}
+          {/*                          }}*/}
+          {/*                      >*/}
+          {/*                          <option value="">-- {translations[language].dashboard.selectCategory} --</option>*/}
+          {/*                          {categories.find(c => c.seasonYear === Number(selectedYear))?.categories.map((category) => (*/}
+          {/*                              <option key={category.legacy_id} value={category.legacy_id}>*/}
+          {/*                                  {category.bc_name}*/}
+          {/*                              </option>*/}
+          {/*                          ))}*/}
+          {/*                      </Form.Select>*/}
+          {/*                      <span*/}
+          {/*                          style={{*/}
+          {/*                              pointerEvents: 'none',*/}
+          {/*                              position: 'absolute',*/}
+          {/*                              right: 12,*/}
+          {/*                              top: '50%',*/}
+          {/*                              transform: 'translateY(-50%)',*/}
+          {/*                              fontSize: '1.2em',*/}
+          {/*                              color: '#bbb',*/}
+          {/*                          }}*/}
+          {/*                      >*/}
+          {/*  ▼*/}
+          {/*</span>*/}
+          {/*                  </div>*/}
+          {/*                  </Form.Group>*/}
+          {/*              </Col>*/}
                         <Col xs={12} md={4}>
                             <Form.Group>
                                 <Form.Label>{translations[language].dashboard.selectEvent}</Form.Label>

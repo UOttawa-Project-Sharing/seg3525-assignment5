@@ -50,7 +50,12 @@ export function RiderSeasonHistoryWidget({ riderName }) {
         });
     }, [riderName]);
 
-    const flippedSeasonHistory = [...seasonHistory].reverse();
+    const flippedSeasonHistory = [...seasonHistory].reverse().map((entry) => {
+        if (entry.position === 0) {
+            return { ...entry, position: null }; // Place at the bottom of the graph
+        }
+        return entry;
+    });
 
     return (
         <Container fluid className="p-0">

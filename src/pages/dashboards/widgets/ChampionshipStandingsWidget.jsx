@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import { useSelector } from 'react-redux';
 import translations from '../../../data/lang';
+import {useChartWidth} from "recharts";
 
 const ChampionshipStandingsWidget = () => {
     const [standings, setStandings] = useState(null);
@@ -63,7 +64,7 @@ const ChampionshipStandingsWidget = () => {
         return teamColor ? teamColor.textColor : '#000';
     };
 
-    const maxPoints =
+    const maxPoints = //600;
         standings !== null && standings.length > 0
             ? Math.max(...standings.map(s => s.points))
             : 0;
@@ -248,7 +249,7 @@ const ChampionshipStandingsWidget = () => {
                                 maxPoints > 0 ? row.points / maxPoints : 0;
                             const barWidthPx = Math.max(
                                 minBarWidthPx,
-                                barPercent * 100 * 1.2
+                                barPercent * 100 * 2
                             );
 
                             return (

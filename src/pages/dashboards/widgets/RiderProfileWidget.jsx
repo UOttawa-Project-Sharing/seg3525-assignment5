@@ -46,7 +46,7 @@ const RiderProfileWidget = ({ riderLegacyId }) => {
         'https://randomuser.me/api/portraits/lego/1.jpg';
 
     return (
-        <Card className={"w-100 h-100 z-0"}>
+        <Card className={"w-100 h-100 z-0 bg-transparent border-0"}>
             <Card.Body>
                 <Row className="align-items-center mb-3">
                     <Col xs="auto">
