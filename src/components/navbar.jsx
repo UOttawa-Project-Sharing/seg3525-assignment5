@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleLanguage } from '../store/store';
 import translations from '../data/lang.jsx';
+import React from "react";
 
 function AppNavbar() {
   const location = useLocation();
@@ -17,7 +18,12 @@ function AppNavbar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">GP-Statz</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          <h4 className="fw-bold brand-title mb-1">
+            <i className="bi bi-speedometer2 me-2"></i>
+            GP-Statz
+          </h4>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto"> {/* Use ms-auto to push links to the right */}
@@ -28,6 +34,15 @@ function AppNavbar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <style>{`
+      .brand-title {
+        // background: linear-gradient(90deg,var(--bs-primary),var(--bs-info) 80%);
+        -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
+        color: black;
+        background-clip: text;
+      }
+    `}</style>
     </Navbar>
   );
 }
